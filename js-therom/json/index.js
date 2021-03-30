@@ -49,6 +49,8 @@ const rabbit = {
   // 아래의 함수 문법은 jump: function()과 같음
   jump() {
     // 함수는 object의 data가 아니기 때문에 serialize 되지 않는다
+    // why? funtion의 선언은 === let name 오키도키????
+    // 값이 나온 것이 아니야!!!!! 호출을 해야해 호출을!
     console.log(`${this.name} can jump!`);
   },
 };
@@ -63,6 +65,8 @@ json = JSON.stringify(rabbit); // 객체
 console.log(json);
 
 json = JSON.stringify(rabbit, [`name`, `color`]); // 원하는 key의 값만 serialize 할 수 있음
+// 데이터화 하고 싶은 object의 key를 가지고 와서 데이터화 시킨다.
+// 해석 : 나는 json을 이용해서 object의 key인 rabbit 안에 있는 value인 name과 color를 가지고 data로만들거얌!!
 console.log(json);
 
 json = JSON.stringify(rabbit, (key, value) => {
@@ -82,6 +86,7 @@ console.log(json);
 // - JSON.parse()
 
 json = JSON.stringify(rabbit);
+// 이건 rabbit안 에있는 key 전부를 데이터화 시키겠다는 뜻이지!!!
 console.log(json);
 
 // 여기서 부터 보샘
@@ -89,6 +94,7 @@ let obj = JSON.parse(json);
 console.log(obj);
 // obj.jump(); // > error : stringify 할 때, 함수는 serializee 되지 않아서 jump는 존재하지  않는 메서드임
 // console.log(rabbit.birthDate.getDate()); // > 날짜 '일' 이 출력됨
+// 아직 object인 rabbit은 출력 씹가능!!!
 // console.log(obj.birthDate.getDate()); // > error : serializee된 birthDate는 string 이기 때문에 당연히 getDate API가 호출 안됨
 
 obj = JSON.parse(json, (key, value) => {

@@ -64,12 +64,13 @@ fetchNumber
     return num * 2; // > 2
   })
   .then((num) => num * 3) // > 6
-  .then((num) => {
-    // > 5
-    return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(num - 1), 1000);
-    });
-  })
+  .then((num) => num - 1)
+  // .then((num) => {
+  //   // > 5
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => resolve(num - 1), 1000);
+  //   });
+  // })
   .then((num) => console.log(num)); // > 5
 
 //

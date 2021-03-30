@@ -29,11 +29,12 @@
 // 1. Class 선언과 Object 생성
 
 class Person {
-  // constructor
+  // constructor(생산자)
   constructor(name, age) {
-    // fields
+    // fields(template : 쉽게 말해 붕어빵틀!!!)
     this.name = name;
     this.age = age;
+    // const name = { this : name(){}} OK?
   }
 
   // methods
@@ -48,11 +49,6 @@ console.log(ellie.name); // > ellie
 console.log(ellie.age); // > 20
 ellie.speak(); // > ellie: hello!
 
-//
-//
-//
-//
-//
 //
 //
 //
@@ -102,7 +98,8 @@ console.log(user1.age); // get
 - object에(들어오는 data에) 상관 없이 공통적으로 class에서 쓸 때, 그러면 메모리에 사용을 조금 더 줄여줌*/
 
 class Article {
-  static publisher = `Dream Coding`; // static 필드 정의
+  static publisher = `Dream Coding`;
+  // static 필드 정의
 
   static printPublisher() {
     // static 메소드 정의
@@ -154,7 +151,22 @@ class Shape {
   }
 }
 
-class Rectangle extends Shape {}
+class Rectangle extends Shape {
+  /*  constructor(width, height, color) {
+  this.width = width;
+  this.height = height;
+  this.color = color;
+}
+
+draw() {
+  console.log(`drawing ${this.color} color of`);
+}
+
+getArea() {
+  return this.width * this.height;
+}
+}*/
+}
 class Triangle extends Shape {
   draw() {
     super.draw(); // 오버라이딩 해도 부모 class 메소드 호출 쌉가능

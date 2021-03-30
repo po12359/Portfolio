@@ -45,9 +45,11 @@ log(`Hello`);
 
 function changeName(obj) {
   obj.name = `coder`;
+  //const ellie = {name : `coder`}
 }
 const ellie = { name: `ellie` };
 changeName(ellie);
+// === changeName(const ellie;)
 console.log(ellie); // > {name: "coder"}
 
 //
@@ -56,16 +58,12 @@ console.log(ellie); // > {name: "coder"}
 //
 //## 3. Default parameters
 // - added in ES6
-
+// - funtion은 순서도 중요하다
 function showMessage(msg, from) {
   console.log(`${msg} by ${from}`);
 }
-showMessage(`Hi!!`);
+showMessage(`Hi!!`); // === showMessage(msg);
 
-//
-//
-//
-//
 //
 //
 //
@@ -73,6 +71,7 @@ showMessage(`Hi!!`);
 // - added in ES6
 
 function printAll(...args) {
+  ///(...args)는 나열된 arg의 모든 값을 가져온다.
   for (let i = 0; i < args.length; i++) {
     console.log(args[i]); // > dream, coding, ellie, good : 순서대로 출력됨.
   }
@@ -82,14 +81,12 @@ function printAll(...args) {
   // }
 
   // args.forEach((arg) => console.log(arg));
+  // const args = {forEach : (arg) => console.log(arg)
 }
 printAll(`dream`, `coding`, `ellie`, `good`);
 
 //   배열 인자를 받을 때 유용함!!
 
-//
-//
-//
 //
 //
 //
@@ -104,19 +101,17 @@ function printMessage() {
   let message = `hello`; // local 변수
   console.log(message);
   console.log(globalMessage);
+  // varialbe globalMessage가 밖에 있구만.... !error!
   function printAnother() {
-    console.log(message);
+    console.log(message); // 클로저 발동!!
     let childMessage = `hello`;
   }
   // console.log(childMessage); // > error : Uncaught ReferenceError: childMessage is not defined
 }
 printMessage();
 
-// 이렇게 중첩된 함수에서, 자식의 함수가 부모 함수에 정의된 변수에 접근이 가능한 것들을 클로저 라고 함.
+// 클로저 : 이렇게 중첩된 함수에서, 자식의 함수가 부모 함수에 정의된 변수에 접근이 가능한 것들을 클로저 라고 함.
 
-//
-//
-//
 //
 //
 //
@@ -132,11 +127,6 @@ console.log(result);
 
 //   function에 return이 없으면, 알아서 undefined을 return 함.
 
-//
-//
-//
-//
-//
 //
 //
 //
@@ -169,9 +159,6 @@ function upgradeUser(user) {
 //
 //
 //
-//
-//
-//
 /* # First-class function
 
 - function이 변수처럼 취급됩니다.
@@ -186,12 +173,14 @@ function upgradeUser(user) {
 
 // print(); // > error : 당연히 선언 전에 호출하니 error 발생!
 const print = function () {
-  // 함수를 변수에 할당
-  // 익명 function
+  // 함수를 변수에 할당 = > const variable-name = funtion()
+  // 익명 function = > no name
   console.log(`print`);
 };
 print(); // > print
-const print2 = print; // print2 변수는 print 변수와 같은 메모리 주소의 function을 바라보고 있음
+// funtion을 var에 대입하니 var도 funtion으로 change!!
+const print2 = print; //
+// print2 변수는 print 변수와 같은 메모리 주소의 function을 바라보고 있음
 print2(); // > print
 
 // console.log(sum(1, 3)); // > 4 : 함수 호이스팅되서 error 발생 안함.
@@ -202,6 +191,9 @@ function sum(a, b) {
 const sum2 = sum; // 선언한 함수도 변수에 할당 쌉가능
 console.log(sum2(1, 3)); // > 4
 
+/* 즉 funtion을 먼저 선언해도 변수 안에 대입할 수 있고 
+변수에 바로 funtion을 대입할 수 있다.*/
+
 //
 //
 //
@@ -209,10 +201,17 @@ console.log(sum2(1, 3)); // > 4
 //2. 함수 표현식을 사용한 Callback function
 
 function randomQuiz(answer, printYes, printNo) {
+  // funtion of randomQuiz === printYes, printNO!!
+  // answer === string
   if (answer === `love you`) {
     printYes();
+    // if === true => printYes() 호출!!
+    /*  printYes( function print() {
+        console.log(`no!`);
+  */
   } else {
     printNo();
+    // else ===  fall => printNo() 호출!!
   }
 }
 
@@ -232,8 +231,30 @@ const printNo = function print() {
 randomQuiz(`wrong`, printYes, printNo);
 randomQuiz(`love you`, printYes, printNo);
 
-/* ## 3. Arrow(화살표) function
+/* 밑에 꺼랑 same same !!! */
 
+// function randomQuiz(answer, printYes, printNo) {
+//   if (answer === "i love you") {
+//     printYes(() => console.log(`yes!`));
+//   } else {
+//     printNo((print) => {
+//       console.log(`no`);
+//     });
+//   }
+// }
+// const printYes = function () {
+//   console.log("yes!");
+// };
+// const printNo = function print() {
+//   console.log("NO");
+// };
+// randomQuiz(`wrong`, printYes, printNo);
+// randomQuiz(`i love you`, printYes, printNO);
+
+/* ## 3. Arrow(화살표) function
+//
+//
+//
 - 항상 anonymous(익명)
 - 함수를 간결하게 만들어 줌
 - 함수형 프로그레밍인 배열/리스트 에 빛을 발휘 함*/

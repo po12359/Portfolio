@@ -30,26 +30,35 @@ printWithDelay(() => console.log(`async callback`), 2000);
 // - 유지보수 안좋음
 
 class UserStorage {
-  loginUser(id, password, onSuccess, onError) {
+  loginUser(
+    id,
+    password,
+    onSuccess,
+    onError // // 여기서 fuction 두개 추가 미친 ㅈㄴ 어려워짐 보기 ㅈㄴ 싫어(onSuccess, onError)
+  ) {
     setTimeout(() => {
       if (
         (id === `ellie` && password === `123`) ||
         (id === `gunwoo` && password === `1104`)
       ) {
-        onSuccess(id);
+        onSuccess(id); //
+        //if면 onSuccess 떄려!!
       } else {
         onError(new Error(`not found`));
-      }
+      } //
+      //else면 onError를 떄려!!
     }, 2000);
   }
 
   getRoles(user, onSuccess, onError) {
     setTimeout(() => {
       if (user === `ellie`) {
-        onSuccess({ name: `ellie`, role: `admin` });
+        onSuccess({ name: `ellie`, role: `admin` }); //
+        //if면 onSuccess 떄려!!
       } else {
         onError(new Error(`no access`));
-      }
+      } //
+      //else면 onError를 떄려!!
     }, 1000);
   }
 }
@@ -65,7 +74,7 @@ userStorage.loginUser(
     userStorage.getRoles(
       user,
       (userInfo) => {
-        alert(`name: ${userInfo.name}, role: ${userInfo.name}`);
+        alert(`name: ${userInfo.name}, role: ${userInfo.role}`);
       },
       (error) => {
         console.log(error);
