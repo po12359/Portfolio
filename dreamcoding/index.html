@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- font 깨지지 않게 하는 meta -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>chan yoeng portfolio</title>
+    <!-- 부가요소 설명 -->
     <meta
       name="description"
       content="portfolio for world softwalre engineer ellie"
     />
+    <!-- 개발자 이름 -->
+    <meta name="author" content="Chanyeong" />
     <script
       src="https://kit.fontawesome.com/fa6aab1a0c.js"
       defer
       crossorigin="anonymous"
     ></script>
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,600&display=swap"
@@ -24,40 +28,48 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <!-- Navbar -->
+    <!-- Navbar(안내) -->
     <nav class="navbar">
       <div class="navbar__logo">
         <img src="img/favicon.png" alt="my rorita" />
-        <a class="logo__title">Ellie</a>
+        <a href="#">Ellie</a>
       </div>
       <ul class="navbar__menu">
-        <!-- 누나는 button으로 하지 않을까? -->
-        <li class="navbar__menu--item">Home</li>
-        <li class="navbar__menu--item">About</li>
-        <li class="navbar__menu--item">Skils</li>
-        <li class="navbar__menu--item">My work</li>
-        <li class="navbar__menu--item">Testimonail</li>
-        <li class="navbar__menu--item">Contact</li>
+        <!-- data-link는 link가 어디로 가는지 표시해준다 -->
+        <li class="navbar__menu--item" data-link="#home">Home</li>
+        <li class="navbar__menu--item" data-link="#about">About</li>
+        <li class="navbar__menu--item" data-link="#skills">Skills</li>
+        <li class="navbar__menu--item" data-link="#work">My work</li>
+        <li class="navbar__menu--item" data-link="#testimnials">Testimonail</li>
+        <li class="navbar__menu--item" data-link="#contact">Contact</li>
       </ul>
+      <!-- Toggle(단추) button -->
+      <button class="navbar__toggle-btn">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
 
     <!-- Home -->
     <section class="home">
-      <img src="img/favicon.png" alt="me" />
-      <h1 class="home__title">
-        HELLO, <br />
-        I`m Dream Coder
-      </h1>
-      <h2 class="home__decription">
-        A Software Engineer currently reslding in Sydney, Australia
-      </h2>
-      <button class="home__contact">CONTACT ME</button>
+      <!-- container는 div class이름 지을 때 용이 -->
+      <div class="home__container">
+        <img src="img/favicon.png" alt="me" class="home__avatar" />
+        <h1 class="home__title">
+          HELLO, <br />
+          I`m Dream Coder
+        </h1>
+        <h2 class="home__decription">
+          A Software Engineer currently reslding in Sydney, Australia
+        </h2>
+        <!-- contact는 link class name use -->
+        <button class="home__contact">CONTACT ME</button>
+      </div>
     </section>
 
     <!-- About Me -->
     <section class="about">
-      <h1 class="about__title">About me</h1>
-      <h2 class="about__description">
+      <h1>About me</h1>
+      <h2>
         Lorean ipsum dolor sit ament, consectetur adipisicing elit, Ut pertium
         pretium tempor. Ut eget imperdiet neque. In <br />
         volutpat ante semper diam molestie, et aliquam erat laoreet. Sed sit
@@ -90,220 +102,236 @@
           <p class="ability__description">JS AND JS AND JS AND</p>
         </li>
       </ul>
-      <div class="apples">
-        <div class="apple">
+      <div class="about__job">
+        <div class="job">
           <i class="fab fa-apple"></i>
-          <div class="apple__career">
-            <p>Currently working at Apple as Software Engineer</p>
-            <p>2019 Sept - Util now</p>
+          <div class="jop__discroption">
+            <p class="jop__name">
+              Currently working at Apple as Software Engineer
+            </p>
+            <!-- period 기간 -->
+            <p class="jop__period">2019 Sept - Util now</p>
           </div>
         </div>
       </div>
     </section>
     <!-- Skills -->
+
     <section class="skills">
-      <h1>Skills</h1>
-      <h2>Skills & Attributes</h2>
-      <p>
-        Experience with all phases of the software life-cycle. Passion for
-        learning new technologie. Capable of <br />
-        working within a team enviromment and independently, Ablility to plan
-        and time schedule, work under <br />
-        strict time pressure and adapt quickly when needed
-      </p>
-      <div calss="skillset">
-        <div class="skillset__left">
-          <h3 class="skillset__title">Skills</h3>
-          <div class="skill">
-            <div class="skill__desciption">
-              <span>HTML</span>
-              <span>60%</span>
+      <div class="section__container">
+        <h1>Skills</h1>
+        <h2>Skills & Attributes</h2>
+        <p>
+          Experience with all phases of the software life-cycle. Passion for
+          learning new technologie. Capable of <br />
+          working within a team enviromment and independently, Ablility to plan
+          and time schedule, work under <br />
+          strict time pressure and adapt quickly when needed
+        </p>
+        <div calss="skillset">
+          <div class="skillset__left">
+            <h3 class="skillset__title">Skills</h3>
+            <div class="skill">
+              <div class="skill__desciption">
+                <span>HTML</span>
+                <span>60%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value"></div>
+              </div>
             </div>
-            <div class="skill__bar">
-              <div class="skill__value"></div>
+            <div class="skill">
+              <div class="skill__desciption">
+                <span>CSS</span>
+                <span>60%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill__desciption">
+                <span>Java Script</span>
+                <span>5%</span>
+              </div>
+              <div class="skill__bar">
+                <div class="skill__value"></div>
+              </div>
             </div>
           </div>
-          <div class="skill">
-            <div class="skill__desciption">
-              <span>CSS</span>
-              <span>60%</span>
+          <div class="skillset_right">
+            <div class="tools">
+              <h3 class="skillset__title">Tools</h3>
+              <ul class="tools__list">
+                <li>Visual Studio Code</li>
+                <li>Git Hub</li>
+              </ul>
             </div>
-            <div class="skill__bar">
-              <div class="skill__value"></div>
+            <div class="etc">
+              <h3 class="skillset__title">Etc</h3>
+              <ul class="etc__list">
+                <li>Git</li>
+              </ul>
             </div>
-          </div>
-          <div class="skill">
-            <div class="skill__desciption">
-              <span>Java Script</span>
-              <span>5%</span>
-            </div>
-            <div class="skill__bar">
-              <div class="skill__value"></div>
-            </div>
-          </div>
-        </div>
-        <div class="skillset_right">
-          <div class="tools">
-            <h3 class="skillset__title">Tools</h3>
-            <ul class="tools__list">
-              <li>Visual Studio Code</li>
-              <li>Git Hub</li>
-            </ul>
-          </div>
-          <div class="etc">
-            <h3 class="skillset__title">Etc</h3>
-            <ul class="etc__list">
-              <li>Git</li>
-            </ul>
           </div>
         </div>
       </div>
     </section>
     <!-- Work -->
     <section class="mywork">
-      <h1>My work</h1>
-      <h2>Projects</h2>
-      <div class="work___categories">
-        <button class="category__btn">
-          All
-          <span class="category__count">0</span>
-        </button>
-        <button class="category__btn">
-          Front-end
-          <span class="category__count">0</span>
-        </button>
-        <button class="category__btn">
-          Back-end
-          <span class="category__count">0</span>
-        </button>
-        <button class="category__btn">
-          Mobil
-          <span class="category__count">0</span>
-        </button>
-      </div>
-      <div class="work__projects">
-        <a href="" class="projects"
-          ><img
-            class="project__img"
-            src="img/projects/project1.png"
-            alt="macbook"
-          />
-          <div class="project_discription">
-            <h3>macbook come here</h3>
-            <span>i want to have macbook</span>
-          </div></a
-        >
-        <a href="" class="projects"
-          ><img
-            class="project__img"
-            src="img/projects/project2.png"
-            alt="iphone"
-          />
-          <div class="project_discription">
-            <h3>iphone come here</h3>
-            <span>i want to have macbook</span>
-          </div></a
-        >
-        <a href="" class="projects">
-          <img
-            class="project__img"
-            src="img/projects/project3.png"
-            alt="thank-you"
-          />
-          <div class="project_discription">
-            <h3>navbar come here</h3>
-            <span>i want to have macbook</span>
-          </div></a
-        >
-        <a href="" class="projects">
-          <img
-            class="project__img"
-            src="img/projects/project4.png"
-            alt="thank-you"
-          />
-          <div class="project_discription">
-            <h3>navbar come here</h3>
-            <span>i want to have macbook</span>
-          </div></a
-        >
-        <a href="" class="projects">
-          <img
-            class="project__img"
-            src="img/projects/project5.png"
-            alt="thank-you"
-          />
-          <div class="project_discription">
-            <h3>navbar come here</h3>
-            <span>i want to have macbook</span>
-          </div></a
-        >
-        <a href="" class="projects">
-          <img
-            class="project__img"
-            src="img/projects/project6.png"
-            alt="thank-you"
-          />
-          <div class="project_discription">
-            <h3>navbar come here</h3>
-            <span>i want to have macbook</span>
-          </div></a
-        >
-        <a href="" class="projects">
-          <img
-            class="project__img"
-            src="img/projects/project7.png"
-            alt="thank-you"
-          />
-          <div class="project_discription">
-            <h3>navbar come here</h3>
-            <span>i want to have macbook</span>
-          </div></a
-        >
-        <a href="" class="projects">
-          <img
-            class="project__img"
-            src="img/projects/project8.png"
-            alt="thank-you"
-          />
-          <div class="project_discription">
-            <h3>navbar come here</h3>
-            <span>i want to have macbook</span>
-          </div></a
-        >
+      <div class="section__container">
+        <h1>My work</h1>
+        <h2>Projects</h2>
+        <div class="work___categories">
+          <button class="category__btn">
+            All
+            <span class="category__count">0</span>
+          </button>
+          <button class="category__btn">
+            Front-end
+            <span class="category__count">0</span>
+          </button>
+          <button class="category__btn">
+            Back-end
+            <span class="category__count">0</span>
+          </button>
+          <button class="category__btn">
+            Mobil
+            <span class="category__count">0</span>
+          </button>
+        </div>
+        <div class="work__projects">
+          <a href="#" class="projects" target="blank"
+            ><img
+              class="project__img"
+              src="img/projects/project1.png"
+              alt="macbook"
+            />
+            <div class="project_discription">
+              <h3>macbook come here</h3>
+              <span>i want to have macbook</span>
+            </div></a
+          >
+          <a href="#" class="projects" target="blank"
+            ><img
+              class="project__img"
+              src="img/projects/project2.png"
+              alt="iphone"
+            />
+            <div class="project_discription">
+              <h3>iphone come here</h3>
+              <span>i want to have macbook</span>
+            </div></a
+          >
+          <a href="#" class="projects" target="blank">
+            <img
+              class="project__img"
+              src="img/projects/project3.png"
+              alt="thank-you"
+            />
+            <div class="project_discription">
+              <h3>navbar come here</h3>
+              <span>i want to have macbook</span>
+            </div></a
+          >
+          <a href="#" class="projects" target="blank">
+            <img
+              class="project__img"
+              src="img/projects/project4.png"
+              alt="thank-you"
+            />
+            <div class="project_discription">
+              <h3>navbar come here</h3>
+              <span>i want to have macbook</span>
+            </div></a
+          >
+          <a href="#" class="projects" target="blank">
+            <img
+              class="project__img"
+              src="img/projects/project5.png"
+              alt="thank-you"
+            />
+            <div class="project_discription">
+              <h3>navbar come here</h3>
+              <span>i want to have macbook</span>
+            </div></a
+          >
+          <a href="#" class="projects" target="blank">
+            <img
+              class="project__img"
+              src="img/projects/project6.png"
+              alt="thank-you"
+            />
+            <div class="project_discription">
+              <h3>navbar come here</h3>
+              <span>i want to have macbook</span>
+            </div></a
+          >
+          <a href="#" class="projects" target="blank">
+            <img
+              class="project__img"
+              src="img/projects/project7.png"
+              alt="thank-you"
+            />
+            <div class="project_discription">
+              <h3>navbar come here</h3>
+              <span>i want to have macbook</span>
+            </div></a
+          >
+          <a href="#" class="projects" target="blank">
+            <img
+              class="project__img"
+              src="img/projects/project8.png"
+              alt="thank-you"
+            />
+            <div class="project_discription">
+              <h3>navbar come here</h3>
+              <span>i want to have macbook</span>
+            </div></a
+          >
+        </div>
       </div>
     </section>
     <!-- Testimonials -->
     <section id="testimonials">
-      <h1>Testimonials</h1>
-      <h2>See what they say about me</h2>
-      <div class="testimonials">
-        <div class="textimanial">
-          <img class="textimnoals_abatar" src="img/star.jpg" alt="people" />
+      <div class="section__container">
+        <h1>Testimonials</h1>
+        <h2>See what they say about me</h2>
+        <div class="testimonials">
+          <div class="textimanial">
+            <img class="textimnoals_avatar" src="img/star.jpg" alt="people" />
+          </div>
+          <div class="textimanial__speech-bubble">
+            <p>넌 할 수 있어!!!!!</p>
+            <span class="name"><a>Ellie</a> / TigerSpike</span>
+          </div>
         </div>
-        <div class="textimanial__speech--bubble">
-          <p>넌 할 수 있어!!!!!</p>
-          <span class="name"><a>Ellie</a> / TigerSpike</span>
-        </div>
-      </div>
-      <div class="testimonials">
-        <div class="textimanial">
-          <img class="textimnoals_abatar" src="img/star.jpg" alt="people" />
-        </div>
-        <div class="textimanial__speech--bubble">
-          <p>you can do it!!!</p>
-          <span class="name"><a>Ellie</a> / TigerSpike</span>
+        <div class="testimonials">
+          <div class="textimanial">
+            <img class="textimnoals_avatar" src="img/star.jpg" alt="people" />
+          </div>
+          <div class="textimanial__speech-bubble">
+            <p>you can do it!!!</p>
+            <span class="name"><a>Ellie</a> / TigerSpike</span>
+          </div>
         </div>
       </div>
     </section>
     <!-- Contact -->
     <footer calss="contact">
-      <h1>Let's talk</h1>
-      <h2><a href="">dream.coder.emllie@gamil.com</a></h2>
-      <div>
-        <a href=""><i class="fab fa-github"></i></a
-        ><a href=""><i class="fab fa-invision"></i></a>
+      <h1 class="contact__title">Let's talk</h1>
+      <h2 class="contact__email">dream.coder.emllie@gamil.com</h2>
+      <div class="contact__icon">
+        <a href="" target="blank"><i class="fab fa-github"></i></a
+        ><a href="" target="blank"><i class="fab fa-invision"></i></a>
       </div>
-      <h3>2020 Dream Coding Ellie. All rights reserved</h3>
+      <h3 class="contact__rights">
+        2020 Dream Coding Ellie. All rights reserved
+      </h3>
     </footer>
+    <!-- Arrow up -->
+    <button class="arrow-up">
+      <i class="fas fa-arrow-up"></i>
+    </button>
   </body>
 </html>
