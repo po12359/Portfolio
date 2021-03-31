@@ -30,12 +30,7 @@ printWithDelay(() => console.log(`async callback`), 2000);
 // - 유지보수 안좋음
 
 class UserStorage {
-  loginUser(
-    id,
-    password,
-    onSuccess,
-    onError // // 여기서 fuction 두개 추가 미친 ㅈㄴ 어려워짐 보기 ㅈㄴ 싫어(onSuccess, onError)
-  ) {
+  loginUser(id, password, onSuccess, onError) {
     setTimeout(() => {
       if (
         (id === `ellie` && password === `123`) ||
@@ -70,7 +65,9 @@ const userStorage = new UserStorage();
 userStorage.loginUser(
   id,
   password,
+  // Onsuccess(user){userstorage.goeroles(userinfo){~~~}}
   (user) => {
+    // user === OnSuccess(id) === OnSuccess(Ellie)
     userStorage.getRoles(
       user,
       (userInfo) => {

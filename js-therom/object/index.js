@@ -20,6 +20,7 @@ const obj2 = new Object(); // 'object constructor' 문법
 
 function print(person) {
   console.log(person.name);
+  //console.log(const person = {name: `ellie})
   console.log(person.age);
 }
 

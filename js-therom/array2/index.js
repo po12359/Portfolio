@@ -246,6 +246,7 @@ const students = [
   //   return curr; // 다음 prev의 값으로 할당됨
   // });
   const result = students.reduce((prev, curr) => (prev += curr.score), 0); // 콜백함수의 2번째 인자가 0이므로 첫 prev의 값은 0으로 할당됨
+  //(prev = prev + curr.score),0 => 0 = 0 + curr.score
   console.log(result / students.length); // > 73.8
 }
 
