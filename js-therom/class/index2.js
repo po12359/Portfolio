@@ -1,146 +1,86 @@
-console.log(`21`);
-setTimeout(() => {
-  console.log(`213`);
-}, 1000);
-console.log(`2323`);
-
-console.log(23);
-setTimeout(() => {
-  console.log(1221);
-}, 1000);
-console.log(`ㅎㄴㅇㅁㄹㅇㄴㅁ`);
-setTimeout(() => {
-  console.log(`fjfjkjkf`);
-}, 1000);
-console.log(`dfasjklass`);
-
-function printMidea(print) {
-  print();
-}
-printMidea(() => {
-  console.log(`hello`);
-});
-
-function callBack(print) {
-  print();
-}
-callBack((print) => {
-  console.log(`pretty`);
-});
-
-function printDelay(name, age) {
-  setTimeout(name, age);
-}
-printDelay((name, age) => {
-  console.log(`chan`, 203);
-}, 1000);
-
-function aaaa(name, timeout) {
-  setTimeout(name, timeout);
-}
-
-aaaa(() => {
-  console.log(`cahn`);
-}, 2000);
-
-class UserInfo {
-  constructor(name, age, sex) {
+class Meta {
+  constructor(name, age, birthday) {
     this.name = name;
     this.age = age;
-    this.sex = sex;
+    this.birthday = new Date();
   }
-  userName() {
-    console.log(`${this.name}`);
-  }
-}
-
-const user = new UserInfo(`suzy`, 30, `female`);
-console.log(user.name);
-user.userName();
-
-class User {
-  constructor(name, age, sex) {
-    this.name = name;
-    this.age = age;
-    this.sex = sex;
-  }
-  get sex() {
-    return this._sex;
-  }
-  set sex(value) {
-    this._sex = value === `male` ? `you're transgender?` : `female`;
+  speak() {
+    console.log(`생일이 오늘(${this.birthday})이야?`);
   }
 }
 
-const gender = new User(`suzy`, 32, `female`);
-console.log(gender);
-const gender1 = new User(`RapMonster`, 22, `male`);
-console.log(gender1);
+var poss = new Meta(`ellie`, 21, Date());
+console.log(poss);
+poss.speak();
+console.log(poss.name);
+console.log(poss.age);
+console.log(poss.birthday);
+console.log(poss.birthday.getDate());
 
-class CallBack {
-  constructor(phone, home, fax) {
-    this.phone = phone;
-    this.home = home;
-    this.fax = fax;
+// getter and setter
+{
+  class GetSet {
+    constructor(firstName, lastName, age) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.age = age;
+    }
+    get age() {
+      return this._age;
+    }
+    set age(value) {
+      this._age = value < 0 ? 0 : value;
+    }
   }
-  get phone() {
-    return this._phone;
-  }
-  set phone(call) {
-    this._phone = call === `010` ? `change you'r phone number` : call;
+  let maet = new GetSet(`soso`, `nono`, -11);
+  console.log(maet);
+  console.log(maet.age);
+}
+
+// static properties
+class Print {
+  static oioi = `dream coder`;
+
+  static goverment() {
+    console.log(`print : ${Print.oioi}`);
   }
 }
 
-const home = new CallBack(`010`, `02`, `030`);
-console.log(home);
-const home1 = new CallBack(`010`, `010`, `040`);
-console.log(home1);
+console.log(Print.oioi);
+Print.goverment();
 
-class Article {
-  static class = `Coding`;
+//
+{
+  class Shape {
+    constructor(width, heigh, color) {
+      this.width = width;
+      this.heigh = heigh;
+      this.color = color;
+    }
 
-  static className() {
-    console.log(`${Article.class}`);
+    draw() {
+      console.log(`draw ${this.color}`);
+    }
+    getArea() {
+      return this.width * this.heigh;
+    }
   }
+  var see = new Shape(12, 21, `red`);
+  see.draw();
+  console.log(see.getArea());
+
+  class Triangle extends Shape {
+    draw() {
+      super.draw();
+    }
+    getArea() {
+      return (this.width * this.heigh) / 2;
+    }
+  }
+
+  var triangle = new Triangle(10, 4, `blue`);
+  console.log(triangle.getArea());
+  triangle.draw();
+
+  console.log(shape instanceof Shape);
 }
-
-Article.className();
-
-class Shape {
-  constructor(width, height, color) {
-    this.width = width;
-    this.height = height;
-    this.color = color;
-  }
-  draw() {
-    console.log(`you should use this ${this.color}`);
-  }
-  getArea() {
-    return this.width * this.height;
-  }
-}
-
-const shape = new Shape(21, 12, `red`);
-console.log(shape.getArea());
-
-shape.draw();
-
-class Rectangle extends Shape {
-  draw() {
-    super.draw();
-  }
-}
-
-const rectangle = new Rectangle(10, 5, `blue`);
-console.log(rectangle.getArea());
-rectangle.draw();
-
-class Triangle extends Shape {
-  getArea() {
-    return (this.width * this.height) / 2;
-  }
-}
-
-const triangle = new Triangle(20, 5, "colona");
-console.log(triangle.getArea());
-triangle.draw();

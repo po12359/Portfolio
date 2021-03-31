@@ -1,131 +1,161 @@
-"use strict";
+"use stict";
 
-function sosi(msg) {
-  msg.name = `chan yeong`;
+//parameters funtion
+
+function printObj(obj) {
+  obj.name = `ellie`;
 }
-let ellie = { name: `ellie` };
-sosi(ellie);
-console.log(ellie.name);
-
-function soso(msg, age) {
-  console.log(msg, age);
+{
+  const printobj = { name: `suzy` };
+  printObj(printobj);
+  /* funtion printObj(printobj){
+  printobj.name = "ellie"
+}   */
+  console.log(printobj);
 }
-soso(`key`, 123);
 
-function ass(...args) {
-  for (let i = 0; i < args.length; i++) {
-    console.log(args[i]);
+// default papameters
+{
+  function printDefault(age, name) {
+    console.log(age);
+    console.log(name);
+    console.log(`age : ${age}, name : ${name}`);
   }
-  for (let arg of args) {
-    console.log(arg);
+  printDefault(19);
+  // age : 19, name : undefind
+}
+
+// rest parameters
+{
+  function printRest(...args) {
+    for (let i = 0; i < args.length; i++) {
+      console.log(args[i]);
+      //args를 array 한다 []
+    }
+    for (arg of args) {
+      console.log(arg);
+    }
+    args.forEach((arg) => console.log(arg));
   }
-}
-ass(`sas`, `non`, `wow`, `cok`);
 
-function sax(...sss) {
-  for (let i = 0; i < sss.length; i++) {
-    console.log(sss[i]);
+  printRest(`name`, `age`, `birthday`);
+}
+
+// Local scope
+
+{
+  let globalMsg = `local scope`;
+  function printScope() {
+    let message = `hello`;
+    console.log(message);
+    console.log(globalMsg);
+    function printAnother() {
+      console.log(message);
+      let closing = `저 새끼 좆사기`;
+    } //  클로저 : 자식 함수인(printAnother)가 부모 함수인 printScope를 사용할 수 있다.
   }
-  for (let ss of sss) {
-    console.log(ss);
+  console.log(closing);
+}
+
+printScope();
+
+// return a value => import!!!!!
+{
+  function printReturn(a, b) {
+    return [a + b, a - b, a * b];
   }
-  sss.forEach((ss) => {
-    console.log(ss);
-  });
+  const resose = printReturn(12, 5);
+  console.log(resose);
 }
 
-sax(`tfa`, `sfa`, `afa `, `aa fa`, `bb`);
-
-function ccc(...aaa) {
-  for (let i = 0; i < aaa.length; i++) {
-    console.log(aaa[i]);
+// early return, early exit
+{
+  function printEarly(name) {
+    if (name === "ellie") {
+      return `nice to meet you`;
+    } else if (name === `IU`) {
+      return `oh!! my god`;
+    } else {
+      `get out here!`;
+    }
   }
-  for (let aa of aaa) {
-    console.log(aa);
+  let early = printEarly(`IU`);
+  console.log(early);
+}
+
+// function experssion
+{
+  function print() {
+    console.log(`go to hell`);
   }
-  aaa.forEach((aa) => {
-    console.log(aa);
-  });
+  print();
+  let print2 = print;
+  print2();
 }
-ccc(`ff`, `ss`, `aa`, `ff`, `qq`);
-
-function print() {
-  console.log(`print`);
-}
-print();
-const print2 = print;
-print2();
-
-function call(mss) {
-  console.log(mss);
-}
-call(`h2!`);
-const call2 = call;
-call2(``);
-
-function wiwi(a, b) {
-  return a + b;
-}
-const wowo = wiwi(2, 4);
-console.log(wowo);
-const wawa = wowo;
-console.log(wawa);
-
-function random(number, name, age) {
-  if (number === 1) {
-    name();
-  } else {
-    age();
+{
+  function sum(a, b) {
+    return a + b;
   }
+  const sum1 = sum;
+  console.log(sum1(1, 2));
 }
 
-const name = function () {
-  console.log(`suzy`);
-};
-const age = function print() {
-  console.log(222);
-};
-
-random(1, name, age);
-random(2, name, age);
-
-// function calculate(command, a, b) {
-//   if (command === `add`) {
-//     return a + b;
-//   } else if (command === `substract`) {
-//     return a - b;
-//   } else if (command === `divide`) {
-//     return a / b;
-//   } else if (command === `multiply`) {
-//     return a * b;
-//   } else if (command === `remainder`) {
-//     return a % b;
-//   }
-// }
-// const quququ = calculate(`add`, 2, 5);
-// console.log(quququ);
-// const sasasas = calculate(`substract`, 4, 5);
-// console.log(sasasas);
-// const divide = calculate(`divide`, 10, 2);
-// console.log(divide);
-// const multiply = calculate(`multiply`, 3, 19);
-// console.log(multiply);
-// const remainder = calculate(`remainder`, 212, 2);
-// console.log(remainder);
-
-function calculate(command, a, b) {
-  switch (command) {
-    case `add`:
-      return a + b;
-    case ` substract`:
-      return a - b;
-    case `divide`:
-      return a / b;
-    case `multiply`:
-      return a * b;
-    case `reminder`:
-      return a % b;
+// callbakc function
+{
+  function quiz(answer, printYes, printNo) {
+    if (answer === `i love you`) {
+      printYes();
+    } else {
+      printNo();
+    }
   }
+  const printYes = function print() {
+    console.log(`Yes`);
+  };
+  const printNo = function print2() {
+    console.log(`No`);
+  };
+  quiz(`i love you`, printYes, printNo);
+  quiz(`so sick`, printYes, printNo);
 }
 
-calculate(`add`, 23, 23);
+{
+  function schoolClass(score, role, sex) {
+    if (score >= 60 && sex === `male`) {
+      role();
+    } else {
+      console.log(`you're fire!`);
+    }
+  }
+  const role = function () {
+    console.log(`ace class`);
+  };
+  schoolClass(91, role, `male`);
+  schoolClass(11, role, `male`);
+  schoolClass(51, role, `female`);
+  schoolClass(100, role, `female`);
+}
+
+{
+  function coderYoutuber(name, subscribe) {
+    // if (name === `ellie` || `nomard` === name) {
+    //   subscribe();
+    // } else {
+    //   console.log(`soso`);
+    // }
+    name === `ellie` || name === `nomard` ? subscribe() : console.log(`soso`);
+  }
+  const subscribe = function () {
+    console.log(`good teacher`);
+  };
+  coderYoutuber(`ellie`, subscribe);
+  coderYoutuber(`nomard`, subscribe);
+  coderYoutuber(`dream`, subscribe);
+  coderYoutuber(`스파르타`, subscribe);
+}
+
+{
+  const call = (a, b) => {
+    return a + b;
+  };
+}
