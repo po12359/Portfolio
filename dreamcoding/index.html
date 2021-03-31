@@ -28,43 +28,47 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <!-- Navbar(안내) -->
-    <nav class="navbar">
-      <div class="navbar__logo">
-        <img src="img/favicon.png" alt="my rorita" />
-        <a href="#">Ellie</a>
-      </div>
-      <ul class="navbar__menu">
-        <!-- data-link는 link가 어디로 가는지 표시해준다 -->
-        <li class="navbar__menu--item" data-link="#home">Home</li>
-        <li class="navbar__menu--item" data-link="#about">About</li>
-        <li class="navbar__menu--item" data-link="#skills">Skills</li>
-        <li class="navbar__menu--item" data-link="#work">My work</li>
-        <li class="navbar__menu--item" data-link="#testimnials">Testimonail</li>
-        <li class="navbar__menu--item" data-link="#contact">Contact</li>
-      </ul>
-      <!-- Toggle(단추) button -->
-      <!-- <button class="navbar__toggle-btn">
-        <i class="fas fa-bars"></i>
-      </button> -->
-    </nav>
+    <header>
+      <!-- Navbar(안내) -->
+      <nav class="navbar">
+        <div class="navbar__logo">
+          <img src="img/favicon.png" alt="my rorita" />
+          <a href="#">Ellie</a>
+        </div>
+        <ul class="navbar__menu">
+          <!-- data-link는 link가 어디로 가는지 표시해준다 -->
+          <li class="navbar__menu--item" data-link="#home">Home</li>
+          <li class="navbar__menu--item" data-link="#about">About</li>
+          <li class="navbar__menu--item" data-link="#skills">Skills</li>
+          <li class="navbar__menu--item" data-link="#work">My work</li>
+          <li class="navbar__menu--item" data-link="#testimnials">
+            Testimonail
+          </li>
+          <li class="navbar__menu--item" data-link="#contact">Contact</li>
+        </ul>
+        <!-- Toggle(단추) button -->
+        <!-- <button class="navbar__toggle-btn">
+          <i class="fas fa-bars"></i>
+        </button> -->
+      </nav>
 
-    <!-- Home -->
-    <section class="home">
-      <!-- container는 div class이름 지을 때 용이 -->
-      <div class="home__container">
-        <img src="img/favicon.png" alt="me" class="home__avatar" />
-        <h1 class="home__title">
-          HELLO, <br />
-          I`m Dream Coder
-        </h1>
-        <h2 class="home__decription">
-          A Software Engineer currently reslding in Sydney, Australia
-        </h2>
-        <!-- contact는 link class name use -->
-        <button class="home__contact">CONTACT ME</button>
-      </div>
-    </section>
+      <!-- Home -->
+      <section class="home">
+        <!-- container는 div class이름 지을 때 용이 -->
+        <div class="home__container">
+          <img src="img/star.jpg" alt="me" class="home__avatar" />
+          <h1 class="home__title">
+            HELLO, <br />
+            I`m Dream Coder
+          </h1>
+          <h2 class="home__decription">
+            A Software Engineer currently reslding in Sydney, Australia
+          </h2>
+          <!-- contact는 link class name use -->
+          <button class="home__contact">CONTACT ME</button>
+        </div>
+      </section>
+    </header>
 
     <!-- About Me -->
     <section class="about">
@@ -82,14 +86,14 @@
           <div class="ability__icon">
             <i class="fab fa-html5"></i>
           </div>
-          <p class="ability__title">HTML</p>
+          <h2 class="ability__title">HTML</ㅗ2>
           <p class="ability__description">HTML AND HTML AND HTML</p>
         </li>
         <li class="ability">
           <div class="ability__icon">
             <i class="fab fa-css3-alt"></i>
           </div>
-          <p class="ability__title">CSS</p>
+          <h2 class="ability__title">CSS</h2>
           <p class="ability__description">
             CSS AND CSS AND CSS AND CSS AND CSS AND
           </p>
@@ -98,7 +102,7 @@
           <div class="ability__icon">
             <i class="fab fa-js"></i>
           </div>
-          <p class="ability__title">JavaScript</p>
+          <h2 class="ability__title">JavaScript</h2>
           <p class="ability__description">JS AND JS AND JS AND</p>
         </li>
       </ul>

@@ -23,10 +23,14 @@
   --font-micro: 14px;
   /* border radius*/
   --border-radius: 4px;
+  /*border*/
+  --border-: 1px solid var(--color-white);
   /* Font weight */
   --weight-bold: 700;
   --weight-semi-bold: 600;
   --weight-regular: 400;
+  /* anmation-duration */
+  --anmation-duration: transform 2s ease-in-out;
 }
 
 /* Typography */
@@ -59,14 +63,28 @@ p {
   margin: 4px 0;
 }
 body {
+  font-family: "Roboto", sans-serif;
   margin: 0px;
 }
-
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid var(--color-white);
+  outline: none;
+}
+header {
+  background: center/cover no-repeat url(img/home-background.png);
+}
+section {
+  max-width: 1200px;
+  padding: 50px;
+  text-align: center;
+  margin: auto;
+}
 /* nav */
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-pink);
   align-items: center;
   padding: 16px;
   color: var(--color-white);
@@ -98,5 +116,82 @@ body {
 }
 .navbar__menu--item:hover {
   border: 1px solid var(--color-white);
-  background-color: var(--color-dark-pink);
+  background-color: var(--color-blue);
+}
+
+/* home */
+.home__container {
+  text-align: center;
+  padding: 50px;
+}
+.home__avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 1px solid var(--color-white);
+}
+.home__contact,
+.home__title,
+.home__decription {
+  color: var(--color-white);
+}
+
+.home__contact {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  margin: 24px;
+  padding: 0 12px;
+  border: 2px solid var(--color-light-white);
+  border-radius: var(--border-radius);
+}
+/* about  */
+
+.about__ability {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+
+.ability i {
+  width: 170px;
+  height: 170px;
+  line-height: 170px;
+  /* line-height 중요 */
+  font-size: 70px;
+  border: 1px solid cornflowerblue;
+  color: cornflowerblue;
+  border-radius: 50%;
+  transition: transform 2s ease-in-out;
+  /* animation은 300ms를 추천 */
+}
+
+.ability i:hover {
+  transform: rotateY(360deg) scale(1.2);
+  color: var(--color-pink);
+}
+
+.ability__title,
+.ability__description {
+  margin: 20px 0;
+  color: var(--color-dark-grey);
+}
+
+.about__job {
+  display: flex;
+}
+.job {
+  display: flex;
+  align-items: center;
+}
+.job i {
+  font-size: var(--font-large);
+  margin-right: 20px;
+}
+.jop__discroption p {
+  display: flex;
+  color: var(--color-dark-white);
+}
+.jop__period {
+  font-size: var(--font-micro);
 }
