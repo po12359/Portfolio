@@ -65,15 +65,18 @@ p {
 body {
   font-family: "Roboto", sans-serif;
   margin: 0px;
+  height: 1000vh;
 }
 button {
   background-color: transparent;
+  /* transparent: 부모 속성을 따라간다 */
   cursor: pointer;
   border: 1px solid var(--color-white);
   outline: none;
 }
 header {
   background: center/cover no-repeat url(img/home-background.png);
+  /* center는 이미지의 가운데 부분 출력 cover는 이미지 전체 no-repeat은 반복 nono */
 }
 section {
   padding: 50px;
@@ -81,7 +84,7 @@ section {
   margin: auto;
 }
 .section__container {
-  max-width: 1200px;
+  width: 100%;
 }
 /* nav */
 .navbar {
@@ -100,7 +103,7 @@ section {
 }
 .navbar__logo a {
   text-decoration: none;
-
+  /* link의 언더라인을 지워준다 */
   color: white;
 }
 
@@ -249,4 +252,104 @@ section {
 .etc__list {
   list-style: none;
   padding: 0;
+}
+.mywork {
+  display: flex;
+  justify-content: center;
+}
+.mywork .section__container {
+  width: 100%;
+}
+.work___categories {
+  justify-content: center;
+  display: flex;
+  margin: 50px 0;
+}
+.category__btn {
+  text-align: cen;
+  font-size: var(--font-medium);
+  border: 1px solid var(--color-light-grey);
+  padding: 16px;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+
+.category__btn:hover {
+  background-color: var(--color-dark-pink);
+  color: var(--color-white);
+}
+
+/* 뭘까요? */
+.category__count {
+  margin-left: 10px;
+  background-color: var(--color-orange);
+  border-radius: 50%;
+  width: 30px;
+}
+
+.work__projects {
+  margin: 30px 0;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.work__projects a {
+  text-decoration: none;
+  margin: 5px;
+  background-color: var(--color-dark-white);
+}
+.project_discription {
+  visibility: hidden;
+}
+.project_discription:hover {
+  visibility: visible;
+  color: black;
+}
+
+#testimonials {
+  display: flex;
+  background-color: var(--color-light-white);
+}
+.testimonials {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.textimnoals_avatar {
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+}
+.textimanial__speech-bubble {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  width: 70%;
+  height: 150px;
+}
+.name {
+  padding: 10px;
+}
+.name a {
+  color: var(--color-dark-pink);
+}
+/* contact */
+#contact {
+  text-align: center;
+  background: center/cover no-repeat url(img/home-background.png);
+}
+.contact__title,
+.contact__email,
+.contact__rights {
+  color: var(--color-white);
+}
+.contact__icon i {
+  font-size: var(--font-large);
+  padding: 20px;
+  color: var(--color-white);
 }

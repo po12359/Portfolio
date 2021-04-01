@@ -1,88 +1,141 @@
-const chanYeong = {
-  firstName: `ffff`,
-  lastName: `sfsfsf`,
-  age: 123213,
-  birthDay: new Date(),
+"use strict";
+{
+  const dog = {
+    name: `아롱이`,
+    age: 13,
+    birthDay: `2009. 10. 10`,
+    myDog() {
+      console.log(`${this.name}아 사랑해!, 생일 축하해${this.birthDay}`);
+    },
+  };
+  let json = JSON.stringify(dog, [`name`, `age`, `birthDay`]);
+  console.log(json);
+  dog.myDog();
+}
 
-  justDoIt() {
-    console.log(`${this.name}, just do it!`);
+{
+  const rabit = {
+    name: `coconi`,
+    age: 19,
+    color: `whitesmoke`,
+    birhtDay: new Date(),
+    jump() {
+      if (this.color === `whitesmoke`) {
+        console.log(`so pretty ${this.name}`);
+      } else {
+        console.log(`get out here ${this.birthDay}`);
+      }
+    },
+  };
+  const json = JSON.stringify(rabit, [`name`, `age`, `color`, `birthDay`]);
+  console.log(json);
+  rabit.jump();
+}
+
+{
+  const shape = {
+    width: 15,
+    height: 21,
+    color: `tomato`,
+    name: `triangle`,
+    multiple() {
+      return (this.width * this.height) / 2;
+    },
+  };
+  const json = JSON.stringify(shape, [`width`, `height`, `color`, `name`]);
+  console.log(json);
+  const triangle = shape.multiple();
+  console.log(triangle);
+}
+
+let game = {
+  name: `maplestory`,
+  age: 12,
+  company: `nexon`,
+  fall(a, b) {
+    return a + b + `${this.company} 망했어`;
   },
 };
-
-let json = JSON.stringify([`apple`, `bananan`]);
-console.log(json);
-chanYeong.justDoIt();
-json = JSON.stringify({ name: `json`, chapter: `존나 어려움` });
-console.log(json);
-json = JSON.stringify(`계산 해봐!! : ${1124214124 + 12321321}`);
-console.log(json);
-json = JSON.stringify(`${2188792188 % 2}`);
-console.log(json);
-json = JSON.stringify(chanYeong, [`firstName`, `lastName`]);
-console.log(json);
-json = JSON.stringify(chanYeong, (key, value) => {
-  return key === `firstName` ? `suzy` : value;
+const maple = game.fall(1, 2);
+console.log(maple);
+let json = JSON.stringify(game, (key, value) => {
+  return key === `name` ? `cart` : value;
 });
 console.log(json);
-json = JSON.stringify(new Date());
-console.log(json);
 
-const cafe = {
-  name: `aroi`,
-  menu: [`coffee`, `tea`, `bakery`, `cokie`],
-  age: 10,
-  birthDay: new Date(),
-};
+{
+  const date = {
+    time: new Date(),
+  };
+  let result = JSON.stringify(date);
+  console.log(result);
+  console.log(date.time.getMonth());
+  let obj = JSON.parse(result);
+  console.log(obj);
+  console.log(date.time.getDate());
+  //아직 object인 date는 출력가능
+  // console.log(obj.time.getDate());
+  //이미 오늘 시간이 string화 되어 버려서 출력이 불가능하다.(글자가 되어버림)
+  obj = JSON.parse(result, (key, value) => {
+    return key === `time` ? new Date(value) : value;
+  });
+  console.log(obj);
+  console.log(obj.time.getSeconds());
+}
 
-json = JSON.stringify(cafe, [`name`, `menu`]);
-console.log(json);
-json = JSON.stringify(cafe, (key, value) => {
-  return key === `name` ? `AROI COFFE CO` : value;
-});
+{
+  const dog = {
+    name: `아롱이`,
+    age: 14,
+    birthDay: new Date(),
+    jump() {
+      console.log(`jump:${this.name} you can do it!`);
+    },
+  };
+  let json = JSON.stringify(dog, [`name`, `age`, `birthDay`]);
+  console.log(json);
+  json = JSON.stringify(dog);
+  console.log(json);
+  json = JSON.stringify(dog, [`birthDay`]);
+  console.log(json);
+  json = JSON.stringify(dog, (key, value) => {
+    return key === `name` ? `my lover` : value;
+  });
+  console.log(json);
+  let obj = JSON.parse(json);
+  console.log(obj);
+  console.log(dog.birthDay.getDate());
+  console.log(dog.birthDay.getMonth());
+  console.log(dog.birthDay.getDay());
+  obj = JSON.parse(json, (key, value) => {
+    return key === `birthDay` ? new Date(value) : value;
+  });
+  console.log(obj.birthDay.getDate());
+}
 
-console.log(json);
-const watch = {
-  name: `rolex`,
-  hours: `15`,
-  seconds: `23`,
-  minuts: `00`,
-  date: new Date(),
-
-  rolex() {
-    console.log(`${this.name} 존나 비싸고 쓸 곳은 존나게 없어요 시부레`);
-  },
-};
-
-let soSick = JSON.stringify(`아 충전기 사야 되는디... 시부레 존나 귀찮다`);
-console.log(soSick);
-soSick = JSON.stringify(watch, { thisWatch: `watch` });
-console.log(soSick);
-watch.rolex();
-
-let bubury = JSON.stringify(watch, (key, value) => {
-  return key === `name` ? "this is imitation" : value;
-});
-
-console.log(bubury);
-
-bubury = JSON.stringify(watch);
-console.log(bubury);
-watch.rolex();
-obj = JSON.parse(bubury);
-console.log(obj);
-
-console.log(watch.date.getMinutes());
-
-obj = JSON.parse(bubury, (key, value) => {
-  return key === "date" ? new Date(value) : value;
-});
-
-console.log(obj);
-
-obj = JSON.parse(json);
-console.log(obj);
-
-obj = JSON.parse(json, (key, value) => {
-  return key === `birthDay` ? new Date(value) : value;
-});
-console.log(obj);
+{
+  const enter = {
+    yg: `blackpink`,
+    sm: `exo`,
+    jyp: `twice`,
+    actor(a, b) {
+      return a + b + `${this.yg}`;
+    },
+  };
+  let json = JSON.stringify(enter);
+  console.log(json);
+  json = JSON.stringify(enter, [`yg`, `sm`]);
+  console.log(json);
+  json = JSON.stringify(enter, [`jyp`, `sm`]);
+  console.log(json);
+  const result = enter.actor(`지수`, `제니`);
+  console.log(result);
+  json = JSON.stringify(enter);
+  console.log(json);
+  let sax = JSON.parse(json);
+  console.log(sax);
+  sax = JSON.parse(json, (key, value) => {
+    return key === `yg` ? `bigbang` : value;
+  });
+  console.log(sax);
+}
