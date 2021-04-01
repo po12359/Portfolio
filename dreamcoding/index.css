@@ -30,7 +30,7 @@
   --weight-semi-bold: 600;
   --weight-regular: 400;
   /* anmation-duration */
-  --anmation-duration: transform 2s ease-in-out;
+  --anmation-duration: 300ms;
 }
 
 /* Typography */
@@ -253,19 +253,25 @@ section {
   list-style: none;
   padding: 0;
 }
-.mywork {
+
+/* work */
+/* .mywork {
   display: flex;
   justify-content: center;
-}
-.mywork .section__container {
-  width: 100%;
-}
+} */
+
 .work___categories {
-  justify-content: center;
-  display: flex;
-  margin: 50px 0;
+  /* justify-content: center;
+  display: flex; */
+  margin: 40px;
 }
 .category__btn {
+  border: 1px solid var(--color-dark-white);
+  border-radius: var(--border-radius);
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+}
+/* .category__btn {
   text-align: cen;
   font-size: var(--font-medium);
   border: 1px solid var(--color-light-grey);
@@ -273,19 +279,32 @@ section {
   width: 33%;
   display: flex;
   justify-content: center;
-}
-
-.category__btn:hover {
+} */
+.category__btn:hover,
+.category__btn.active {
   background-color: var(--color-dark-pink);
   color: var(--color-white);
 }
 
-/* 뭘까요? */
+.category__btn:active .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+
 .category__count {
-  margin-left: 10px;
+  /* margin-left: 10px; */
   background-color: var(--color-orange);
   border-radius: 50%;
-  width: 30px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  line-height: 24px;
+  position: relative;
+  top: -20px;
+  left: 4px;
+  opacity: 0;
+  transition: all var(--anmation-duration) ease-in;
 }
 
 .work__projects {
@@ -295,17 +314,61 @@ section {
   flex-wrap: wrap;
 }
 .work__projects a {
+  display: felx;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   text-decoration: none;
   margin: 5px;
+  width: 280px;
+  height: 250px;
   background-color: var(--color-dark-white);
 }
-.project_discription {
-  visibility: hidden;
+.porject__img {
+  width: 100%;
+  height: 100%;
+  /*img의 크기가 너무 클 때 정해진 구역을 넘어가지 말라고 하는거 */
 }
-.project_discription:hover {
+.project__discription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+  opacity: 0;
+  transition: all var(--anmation-duration) ease;
+  transform: translateY(10px);
+}
+.projects:hover .project__discription {
+  opacity: 0.8;
+  transform: translateY(0);
+}
+.project__discription h3,
+.project__discription span {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.project__discription h3:after {
+  content: "";
+  width: 25px;
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -12px;
+  margin-top: 8px;
+  height: 2px;
+  background-color: var(--color-dark-white);
+}
+
+/* .project_discription:hover {
   visibility: visible;
   color: black;
-}
+}  */
 
 #testimonials {
   display: flex;
