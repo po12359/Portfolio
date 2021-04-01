@@ -65,7 +65,6 @@ p {
 body {
   font-family: "Roboto", sans-serif;
   margin: 0px;
-  height: 1000vh;
 }
 button {
   background-color: transparent;
@@ -464,5 +463,14 @@ section {
   .projects {
     flex-grow: 1;
     /* //알아서 box의 크기를 맞춰준다. */
+  }
+
+  .textimanial__speech-bubble,
+  p,
+  h2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 }
