@@ -84,7 +84,8 @@ section {
   margin: auto;
 }
 .section__container {
-  width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }
 /* nav */
 .navbar {
