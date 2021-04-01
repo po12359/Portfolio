@@ -370,30 +370,41 @@ section {
   color: black;
 }  */
 
+/* test */
 #testimonials {
-  display: flex;
+  /* display: flex; */
   background-color: var(--color-light-white);
 }
 .testimonials {
-  display: flex;
+  /* display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: center; */
+  display: flex;
+  margin: 32px 0;
 }
+
 .textimnoals_avatar {
   border-radius: 50%;
   width: 170px;
   height: 170px;
 }
+.textimnoals_avatar:nth-child(odd) {
+  margin-right: 40px;
+}
+.textimnoals_avatar:nth-child(even) {
+  margin-left: 40px;
+}
 .textimanial__speech-bubble {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 20px 0; */
+  padding: 18px;
   background-color: var(--color-white);
   border-radius: var(--border-radius);
-  width: 70%;
-  height: 150px;
+  /* width: 70%;
+  height: 150px; */
 }
 .name {
   padding: 10px;
