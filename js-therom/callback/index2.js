@@ -1,93 +1,129 @@
 `use strict`;
-// console.log(1);
-// setTimeout(() => console.log(2), 1000);
-// console.log(3);
 
-// console.log(`dog`);
-// setTimeout(() => {
-//   console.log(1 + 3);
-// }, 2000);
-// console.log(`cat`);
+// {
+//   class UserPrint {
+//     loginUser(id, password, onSuccess, onError) {
+//       setTimeout(() => {
+//         if (
+//           (id === `ellie` && password === `123`) ||
+//           (id === `po12359` && password === `123`)
+//         ) {
+//           onSuccess(id);
+//         } else {
+//           onError(new Error(`get out here`));
+//         }
+//       }, 1000);
+//     }
+//     getRole(user, onSuccess, onError) {
+//       setTimeout(() => {
+//         if (user === `ellie`) {
+//           onSuccess({ user: `ellie`, role: `male` });
+//         } else {
+//           onError(new Error(`get out here`));
+//         }
+//       }, 1000);
+//     }
+//   }
+//   const id = prompt(`enter your id`);
+//   const password = prompt(`enter your password`);
+//   const userprint = new UserPrint();
+//   userprint.loginUser(
+//     id,
+//     password,
+//     (user) => {
+//       userprint.getRole(
+//         user,
+//         (userInfo) => {
+//           console.log(userInfo);
+//         },
+//         (error) => {
+//           console.log(error);
+//         }
+//       );
+//     },
+//     (error) => console.log(error)
+//   );
+// }
 
-// console.log(`1`);
-// console.log(3);
-// setTimeout(() => {
-//   console.log(1232141 / 12312), 4000;
-// });
-// console.log(`213`);
+// {
+//   class UserPopo {
+//     loginUser(id, password, onSuccess, onError) {
+//       setTimeout(() => {
+//         if (
+//           (id === `ellie` && password === `123`) ||
+//           (id === `po12359` && password === `rksvks1!`)
+//         ) {
+//           onSuccess(id);
+//         } else {
+//           onError(new Error(`get out here`));
+//         }
+//       });
+//     }
+//     getRoles(user, onSuccess, onError) {
+//       setTimeout(() => {
+//         if (user === `ellie` || user === `po12359`) {
+//           onSuccess({ user: `ellie`, role: `adming` });
+//         } else {
+//           onError(new Eroor(`get out here`));
+//         }
+//       });
+//     }
+//   }
+//   const id = prompt(`enter your id`);
+//   const password = prompt(`enter your password`);
+//   const userPopo = new UserPopo();
+//   userPopo.loginUser(id, password, (user) => {
+//     userPopo.getRoles(
+//       user,
+//       (userInfo) => {
+//         alert(`user : ${userInfo.user}, role : ${userInfo.role}`);
+//       },
+//       (error) => console.log(error)
+//     ),
+//       (error) => console.log(error);
+//   });
+// }
 
 {
-  function printName(print) {
-    print();
-  }
-  printName(() => {
-    console.log(`ddd`);
-  });
-  //printName의 parameters는 function이다. 그니깐 출력값의 arg에도 funtion을 대입하라.
-}
-
-{
-  function printAfter(print, timeout) {
-    setTimeout(print, timeout);
-  }
-  printAfter(() => console.log(`dog`), 2000);
-}
-{
-  function printName(print, timeout) {
-    setTimeout(print, timeout);
-  }
-  printName(() => console.log(`gell`), 5000);
-}
-
-function call(next, timeout) {
-  setTimeout(next, timeout);
-}
-call(() => console.log(`call`), 3000);
-{
-  function nexs(nexon, maple) {
-    setTimeout(nexon, maple);
-  }
-  nexs(() => console.log(`cicici`), 6000);
-}
-
-const value = {
-  name: `clas`,
-  date: new Date(),
-};
-const json = JSON.stringify(value, [`name`, `date`]);
-console.log(json);
-obj = JSON.parse(json, (key, value) => {
-  return key === `date` ? new Date(value) : value;
-});
-
-console.log(obj.date.getDate());
-
-function reject(name, print) {
-  setTimeout(name, print);
-}
-reject(() => console.log(`name`), 2000);
-
-function number(print, sick) {
-  setTimeout(print, sick);
-}
-number(() => console.log(`123`), 3000);
-
-class UserStorage {
-  loginUser(id, password, onSuccess, onError) {
-    if (id === `ellie` && password === `123`) {
-      onSuccess(id);
-    } else {
-      onError(new Error(`get out here`));
+  class Successs {
+    loginUser(id, password, onSuccess, onError) {
+      setTimeout(() => {
+        if (
+          (id === `po12359` && password === `123`) ||
+          (id === `ellie` && password === `dnalswl1`)
+        ) {
+          onSuccess(id);
+        } else {
+          onError(new Error(`get out here`));
+        }
+      }, 2000);
+    }
+    userRoles(user, onSuccess, onError) {
+      setTimeout(() => {
+        if (user === `suzy` || user === `po12359`) {
+          onSuccess({ name: `suzy`, role: `admin` });
+        } else {
+          onError(new Error(`get out here`));
+        }
+      }, 2000);
     }
   }
-  getRoles(user, onSuccess, onError) {
-    if (user === `ellie`) {
-      onSuccess({ name: `ellie`, role: `admin` });
-    } else {
-      onError(new Error(`get out here!`));
-    }
-  }
+  const id = prompt(`enter your id`);
+  const password = prompt(`enter your password`);
+  const userInfo = new Successs();
+  userInfo.loginUser(
+    id,
+    password,
+    (user) =>
+      userInfo.userRoles(
+        user,
+        (userInfo) => {
+          alert(`user : ${userInfo.name}, role : ${userInfo.role}`);
+        },
+        (error) => {
+          console.log(error);
+        }
+      ),
+    (error) => console.log(error)
+  );
 }
-
-const id = prompt(`enter your id`);
-const password = prompt(`enter your password`);

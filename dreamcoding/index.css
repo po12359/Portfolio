@@ -291,7 +291,7 @@ section {
 } */
 .category__btn:hover,
 .category__btn.active {
-  background-color: var(--color-dark-pink);
+  background-color: cornflowerblue;
   color: var(--color-white);
 }
 
@@ -323,7 +323,7 @@ section {
   flex-wrap: wrap;
 }
 .work__projects a {
-  display: felx;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -435,8 +435,19 @@ section {
   font-size: var(--font-large);
   padding: 20px;
   color: var(--color-white);
+  transition: transform 3s ease-in-out;
 }
-
+.contact__icon i:hover {
+  transform: rotateY(360deg);
+}
+.textimanial__speech-bubble,
+p,
+h2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+}
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {
     display: block;
