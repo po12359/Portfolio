@@ -73,10 +73,7 @@ button {
   border: 1px solid var(--color-white);
   outline: none;
 }
-header {
-  background: center/cover no-repeat url(img/home-background.png);
-  /* center는 이미지의 가운데 부분 출력 cover는 이미지 전체 no-repeat은 반복 nono */
-}
+
 section {
   padding: 50px;
   text-align: center;
@@ -100,10 +97,11 @@ a {
   width: 100%;
   background-color: transparent;
   transition: all var(--anmation-duration) ease-in-out;
+  z-index: 1;
 }
 #navbar.navbar--dark {
   background-color: #5271ff;
-  padding: 8px;
+  padding: 3px;
 }
 .navbar__logo {
   font-size: var(--font-medium);
@@ -137,6 +135,9 @@ a {
 }
 
 /* home */
+#home {
+  background: center/cover no-repeat url(img/home-background.png);
+}
 
 .home__container {
   text-align: center;
@@ -185,8 +186,9 @@ a {
   /* animation은 300ms를 추천 */
 }
 
-.ability i:hover {
-  transform: rotateY(360deg) scale(1.2);
+.ability i:hover,
+.ability i:focus {
+  transform: rotatez(360deg) scale(1.2);
   color: var(--color-pink);
 }
 

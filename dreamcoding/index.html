@@ -28,50 +28,48 @@
     <script src="index.js" defer></script>
   </head>
   <body>
-    <header>
-      <!-- Navbar(안내) -->
-      <nav id="navbar">
-        <div class="navbar__logo">
-          <i class="fab fa-apple"></i>
-          <a href="#">Ellie</a>
-        </div>
-        <ul class="navbar__menu">
-          <!-- data-link는 link가 어디로 가는지 표시해준다 -->
-          <li class="navbar__menu--item" data-link="#home">Home</li>
-          <li class="navbar__menu--item" data-link="#about">About</li>
-          <li class="navbar__menu--item" data-link="#skills">Skills</li>
-          <li class="navbar__menu--item" data-link="#work">My work</li>
-          <li class="navbar__menu--item" data-link="#testimnials">
-            Testimonail
-          </li>
-          <li class="navbar__menu--item" data-link="#contact">Contact</li>
-        </ul>
-        <!-- Toggle(단추) button -->
-         <button class="navbar__toggle-btn">
-          <i class="fas fa-bars"></i>
-        </button> 
-      </nav>
+    <!-- Navbar(안내) -->
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <i class="fab fa-apple"></i>
+        <a href="#">Ellie</a>
+      </div>
+      <ul class="navbar__menu">
+        <!-- data-link는 link가 어디로 가는지 표시해준다 -->
+        <li class="navbar__menu--item" data-link="#home">Home</li>
+        <li class="navbar__menu--item" data-link="#about">About</li>
+        <li class="navbar__menu--item" data-link="#skills">Skills</li>
+        <li class="navbar__menu--item" data-link="#work">My work</li>
+        <li class="navbar__menu--item" data-link="#testimonials">
+          Testimonail
+        </li>
+        <li class="navbar__menu--item" data-link="#contact">Contact</li>
+      </ul>
+      <!-- Toggle(단추) button -->
+      <button class="navbar__toggle-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
 
-      <!-- Home -->
-      <section class="home">
-        <!-- container는 div class이름 지을 때 용이 -->
-        <div class="home__container">
-          <img src="img/star.jpg" alt="me" class="home__avatar" />
-          <h1 class="home__title">
-            HELLO, <br />
-            I`m Dream Coder
-          </h1>
-          <h2 class="home__decription">
-            A Software Engineer currently reslding in Sydney, Australia
-          </h2>
-          <!-- contact는 link class name use -->
-          <button class="home__contact">CONTACT ME</button>
-        </div>
-      </section>
-    </header>
+    <!-- Home -->
+    <section class="home" id="home">
+      <!-- container는 div class이름 지을 때 용이 -->
+      <div class="home__container">
+        <img src="img/star.jpg" alt="me" class="home__avatar" />
+        <h1 class="home__title">
+          HELLO, <br />
+          I`m Dream Coder
+        </h1>
+        <h2 class="home__decription">
+          A Software Engineer currently reslding in Sydney, Australia
+        </h2>
+        <!-- contact는 link class name use -->
+        <button class="home__contact" data-link="#contact">CONTACT ME</button>
+      </div>
+    </section>
 
     <!-- About Me -->
-    <section class="about">
+    <section class="about" id="about">
       <h1>About me</h1>
       <h2>
         Lorean ipsum dolor sit ament, consectetur adipisicing elit, Ut pertium
@@ -121,7 +119,7 @@
     </section>
     <!-- Skills -->
 
-    <section class="skills">
+    <section class="skills" id="skills">
       <div class="section__container">
         <h1>Skills</h1>
         <h2>Skills & Attributes</h2>
@@ -182,7 +180,7 @@
       </div>
     </section>
     <!-- Work -->
-    <section class="mywork">
+    <section class="mywork" id="work">
       <div class="section__container">
         <h1>My work</h1>
         <h2>Projects</h2>
@@ -302,77 +300,44 @@
         <h1>Testimonials</h1>
         <h2>See what they say about me</h2>
         <div class="testimonials">
-            <img class="textimnoals_avatar" src="img/star.jpg" alt="people" />        
+          <img class="textimnoals_avatar" src="img/star.jpg" alt="people" />
           <div class="textimanial__speech-bubble">
-            <p>Ooh
-              You can dance
-              You can jive
-              Having the time of your life
-              Ooh, see that girl
-              Watch that scene
+            <p>
+              Ooh You can dance You can jive Having the time of your life Ooh,
+              see that girl Watch that scene Digging the dancing queen Friday
+              night and the lights are low Looking out for a place to go Where
+              they play the right music Getting in the swing You come to look
+              for a king Anybody could be that guy Night is young and the
+              music's high With a bit of rock music Everything is fine You're in
+              the mood for a dance And when you get the chance You are the
+              dancing queen Young and sweet Only seventeen Dancing queen Feel
+              the beat from the tambourine, oh yeah You can dance You can jive
+              Having the time of your life Ooh, see that girl Watch that scene
               Digging the dancing queen
-              Friday night and the lights are low
-              Looking out for a place to go
-              Where they play the right music
-              Getting in the swing
-              You come to look for a king
-              Anybody could be that guy
-              Night is young and the music's high
-              With a bit of rock music
-              Everything is fine
-              You're in the mood for a dance
-              And when you get the chance
-              You are the dancing queen
-              Young and sweet
-              Only seventeen
-              Dancing queen
-              Feel the beat from the tambourine, oh yeah
-              You can dance
-              You can jive
-              Having the time of your life
-              Ooh, see that girl
-              Watch that scene
-              Digging the dancing queen</p>
+            </p>
             <span class="name"><a>Ellie</a> / TigerSpike</span>
           </div>
-        </div>  
+        </div>
         <div class="testimonials">
           <div class="textimanial__speech-bubble">
-            <p>Ooh
-              You can dance
-              You can jive
-              Having the time of your life
-              Ooh, see that girl
-              Watch that scene
+            <p>
+              Ooh You can dance You can jive Having the time of your life Ooh,
+              see that girl Watch that scene Digging the dancing queen Friday
+              night and the lights are low Looking out for a place to go Where
+              they play the right music Getting in the swing You come to look
+              for a king Anybody could be that guy Night is young and the
+              music's high With a bit of rock music Everything is fine You're in
+              the mood for a dance And when you get the chance You are the
+              dancing queen Young and sweet Only seventeen Dancing queen Feel
+              the beat from the tambourine, oh yeah You can dance You can jive
+              Having the time of your life Ooh, see that girl Watch that scene
               Digging the dancing queen
-              Friday night and the lights are low
-              Looking out for a place to go
-              Where they play the right music
-              Getting in the swing
-              You come to look for a king
-              Anybody could be that guy
-              Night is young and the music's high
-              With a bit of rock music
-              Everything is fine
-              You're in the mood for a dance
-              And when you get the chance
-              You are the dancing queen
-              Young and sweet
-              Only seventeen
-              Dancing queen
-              Feel the beat from the tambourine, oh yeah
-              You can dance
-              You can jive
-              Having the time of your life
-              Ooh, see that girl
-              Watch that scene
-              Digging the dancing queen</p>
+            </p>
             <span class="name"><a>Ellie</a> / TigerSpike</span>
           </div>
-            <img class="textimnoals_avatar" src="img/star.jpg" alt="people" />
+          <img class="textimnoals_avatar" src="img/star.jpg" alt="people" />
         </div>
       </div>
-    </div>
     </section>
 
     <!-- Contact -->
