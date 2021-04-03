@@ -114,6 +114,7 @@ a {
 .navbar__menu {
   display: flex;
   list-style: none;
+  margin-right: 10px;
 }
 .navbar__menu--item {
   margin: 0 4px;
@@ -132,6 +133,7 @@ a {
   top: 24px;
   font-size: 24px;
   color: var(--color-white);
+  border: none;
 }
 
 /* home */
@@ -188,7 +190,7 @@ a {
 
 .ability i:hover,
 .ability i:focus {
-  transform: rotatez(360deg) scale(1.2);
+  transform: rotatey(360deg) scale(1.2);
   color: var(--color-pink);
 }
 
