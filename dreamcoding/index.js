@@ -16,18 +16,22 @@ document.addEventListener(`scroll`, () => {
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
-const navbarMenu = document.querySelector(`.navbar__menu`);
-
-navbar.addEventListener(`click`, (event) => {
+// Handle scrolling when tapping on the navbar menu
+const navbarMenu = document.querySelector(".navbar__menu");
+navbarMenu.addEventListener("click", (event) => {
   const target = event.target;
   const link = target.dataset.link;
   if (link == null) {
     return;
   }
-  console.log(event.target.dataset.link);
-  const scrollTo = document.querySelector(link);
-  scrollTo.scrollIntoView({ behavior: `smooth` });
+  navbarMenu.classList.remove("open");
   scrollIntoView(link);
+});
+
+// navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
+navbarToggleBtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("open");
 });
 //make home slowly fade to transparent as the window scrolls down
 const homeContact = document.querySelector(`.home__contacat`);
@@ -68,30 +72,47 @@ document.addEventListener(`scroll`, () => {
     arrowUp.classList.remove(`arrow-up-dark`);
   }
 });
-// projects
-const workBtnContainer = document.querySelector(`.work___categories`);
-const pojectsContanier = document.querySelector(`.work__projects`);
-const projects = document.querySelectorAll(`.projects`);
-workBtnContainer.addEventListener("click", (e) => {
-  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
-  if (filter == null) {
-    return;
-  }
-  console.log(filter);
-  projects.forEach((project) => {
-    console.log(project.dataset.type);
-    if (filter === `*` || filter === project.dataset.type) {
-      project.classList.remove(`invisible`);
-    } else {
-      project.classList.add(`invisible`);
-    }
-  });
-  // let project;
-  // for (let project of projects) {
-  // }
-});
 
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: `smooth` });
 }
+
+// projects
+const workBtnContainer = document.querySelector(`.work___categories`);
+const projectsContanier = document.querySelector(`.work__projects`);
+const projects = document.querySelectorAll(`.projects`);
+workBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  //parentNode , work__categories의 자식인 숫자도 포함시켜준다
+  // 내가 선언한 data-filter를 변수에 넣어주
+  if (filter == null) {
+    return;
+  }
+  // remove selection from the previous item adn selection the new one
+  const active = document.querySelector(`.category__btn.selected`);
+
+  active.classList.remove("selected");
+
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  target.classList.add("selected");
+  projectsContanier.classList.add(`anim-out`);
+
+  setTimeout(() => {
+    projects.forEach((project) => {
+      console.log(project.dataset.type);
+
+      if (filter === `*` || filter === project.dataset.type) {
+        //true라면 사진을 지우고 false라면 사진을 남긴다
+        project.classList.remove(`invisible`);
+      } else {
+        project.classList.add(`invisible`);
+      }
+    });
+    projectsContanier.classList.remove(`anim-out`);
+  }, 300);
+  // let project;
+  // for (let project of projects) {
+  // }
+});
