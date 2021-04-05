@@ -116,3 +116,12 @@ workBtnContainer.addEventListener("click", (e) => {
   // for (let project of projects) {
   // }
 });
+// const options = {
+//   root: null, // default viewport(윈도우 부분이 기본)
+//   rootMargin: `0px`, // default opx
+//   threshold: 1, // 0~1
+// };
+
+// 1. 모든 섹션 요소들과 메뉴 아이템을 가지고 온다
+// 2. intersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+//3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다.

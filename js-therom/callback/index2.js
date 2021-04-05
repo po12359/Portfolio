@@ -85,7 +85,7 @@
 // }
 
 {
-  class Successs {
+  class Success {
     loginUser(id, password, onSuccess, onError) {
       setTimeout(() => {
         if (
@@ -108,22 +108,46 @@
       }, 2000);
     }
   }
-  const id = prompt(`enter your id`);
-  const password = prompt(`enter your password`);
-  const userInfo = new Successs();
-  userInfo.loginUser(
+
+  const id = `po12359`;
+  const password = `123`;
+
+  const success = new Success();
+  success.loginUser(
     id,
     password,
-    (user) =>
-      userInfo.userRoles(
+    (user) => {
+      success.userRoles(
         user,
         (userInfo) => {
-          alert(`user : ${userInfo.name}, role : ${userInfo.role}`);
+          console.log(`id : ${userInfo.name}, role : ${userInfo.role}`);
         },
         (error) => {
           console.log(error);
         }
-      ),
-    (error) => console.log(error)
+      );
+    },
+    (error) => {
+      console.log(error);
+    }
   );
+
+  // const id = prompt(`enter your id`);
+  // const password = prompt(`enter your password`);
+  // const userInfo = new Successs();
+  // userInfo.loginUser(
+  //   id,
+  //   password,
+  //   (user) =>
+  //     userInfo.userRoles(
+  //       user,
+  //       (userInfo) => {
+  //         alert(`user : ${userInfo.name}, role : ${userInfo.role}`);
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //       }
+  //     ),
+  //   (error) => console.log(error)
+  // );
 }

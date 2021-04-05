@@ -167,3 +167,68 @@ getHen()
   .catch((error) => {
     console.log(error);
   });
+
+class UserStorage {
+  loginUser(id, password) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (
+          (id === `ellie` && password === `123`) ||
+          (id === `gunwoo` && password === `1104`)
+        ) {
+          resolve(id); //
+          //if면 onSuccess 떄려!!
+        } else {
+          reject(new Error(`not found`));
+        } //
+        //else면 onError를 떄려!!
+      }, 2000);
+    });
+  }
+
+  getRoles(user) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (user === `ellie`) {
+          resolve({ name: `ellie`, role: `admin` }); //
+          //if면 onSuccess 떄려!!
+        } else {
+          reject(new Error(`no access`));
+        } //
+        //else면 onError를 떄려!!
+      }, 1000);
+    });
+  }
+}
+
+const id = prompt(`enter your id`);
+const password = prompt(`enter your password`);
+
+const userStorage = new UserStorage();
+userStorage
+  .loginUser(id, password)
+  .then((user) => userStorage.getRoles(user))
+  .then((userInfo) =>
+    console.log(`id : ${userInfo.name}, role : ${userInfo.role}`)
+  )
+  .catch((error) => {
+    console.log(error);
+  });
+
+function delay(ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(), ms);
+  });
+}
+delay(3000).then(() => console.log(`secnods`));
+
+let numbers = [ 3, 1, 4, 1, 5, 9]
+
+function for_loop(array){
+let sum =0;
+for(let i = 0; i<array.length; i++){
+ sum +=array[i];}
+return sum;
+console.log(array[i]);
+}
+for_loop(numbers);
