@@ -226,9 +226,11 @@ let numbers = [ 3, 1, 4, 1, 5, 9]
 
 function for_loop(array){
 let sum =0;
-for(let i = 0; i<array.length; i++){
- sum +=array[i];}
-return sum;
-console.log(array[i]);
+ for(let i = 0; i<array.length; i++)
+ //{
+//  sum +=array[i];}
+ console.log(array[i]);
+// return sum;
+
 }
 for_loop(numbers);
