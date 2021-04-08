@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coordinates</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      div {
+        margin: 10px 10px;
+        width: 150px;
+        height: 150px;
+        background-color: burlywood;
+      }
+      .div {
+        background-color: cornflowerblue;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="div"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      const div = document.querySelector(`.div`);
+      div.addEventListener(`click`, () => {
+        let rect = div.getBoundingClientRect();
+        console.log(rect);
+        console.log(`page : ${event.pageX}, ${event.pageY}`);
+        console.log(`client: ${event.clientX}, ${event.clientY}`);
+
+        // coordinates(좌표)
+        // element.getBoundingClientRect : element(tag)의 너비와 높이가 얼마인지 등 다양한 정보를 알 수 있는 함수
+        // top = x coordiantes, left = x coordiantes
+        //bottom = 브라우저 제일 위에서 아래까지
+        //right = 브라우저 왼쪽에서 가장 오른쪽
+        // page lacation =>page 최 상단 부터
+        // client location => view 최상단부터
+      });
+    </script>
+  </body>
+</html>
