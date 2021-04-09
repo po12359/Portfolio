@@ -9,6 +9,9 @@
       body {
         background-color: black;
       }
+      section {
+        margin-top: 20px;
+      }
       div {
         margin: 10px 10px;
         width: 150px;
@@ -19,45 +22,75 @@
         background-color: cornflowerblue;
         cursor: pointer;
       }
+
+      aside {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: gray;
+      }
     </style>
   </head>
   <body>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div class="div"></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <section>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="div"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
+    <aside>
+      <button class="scroll-by">Scroll By 100px(Y)</button>
+      <button class="scroll-to">Scroll To 100px(Y)</button>
+      <button class="scroll-into">Scroll into special</button>
+    </aside>
     <script>
       const div = document.querySelector(`.div`);
+
       div.addEventListener(`click`, () => {
         let rect = div.getBoundingClientRect();
         console.log(rect);
         console.log(`page : ${event.pageX}, ${event.pageY}`);
-        console.log(`client: ${event.clientX}, ${event.clientY}`);
+        console.log(`client : ${event.clientX}, ${event.clientY}`);
+      });
+      // coordinates(좌표)
+      // element.getBoundingClientRect : element(tag)의 너비와 높이가 얼마인지 등 다양한 정보를 알 수 있는 함수
+      // top = x coordiantes, left = x coordiantes
+      //bottom = 브라우저 제일 위에서 아래까지
+      //right = 브라우저 왼쪽에서 가장 오른쪽
+      // page lacation =>page 최 상단 부터
+      // client location => view 최상단부터
+      //  });
+      const scrollBy = document.querySelector(`.scroll-by`);
+      const scrollTo = document.querySelector(`.scroll-to`);
+      const scrollInto = document.querySelector(`.scroll-into`);
 
-        // coordinates(좌표)
-        // element.getBoundingClientRect : element(tag)의 너비와 높이가 얼마인지 등 다양한 정보를 알 수 있는 함수
-        // top = x coordiantes, left = x coordiantes
-        //bottom = 브라우저 제일 위에서 아래까지
-        //right = 브라우저 왼쪽에서 가장 오른쪽
-        // page lacation =>page 최 상단 부터
-        // client location => view 최상단부터
+      scrollBy.addEventListener(`click`, () => {
+        window.scrollBy({ top: 100, rlef: 0, behavior: "smooth" });
+        // function in object 쌉가능!!!!
+        // behavior = scroll moving (smooth, auto)
+        //window.scrollBy(0, 100);
+        // scrollBy(x(px), y(px)) x축으로 y축으로 이동
+      });
+      scrollTo.addEventListener(`click`, () => {
+        window.scrollTo(0, 100); // page의 지정된 위치로 움직인다.
+      });
+      scrollInto.addEventListener(`click`, () => {
+        div.scrollIntoView({ behavior: `smooth` }); // 지정되어진 변수의 위치로 움직인다.
       });
     </script>
   </body>

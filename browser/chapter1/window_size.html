@@ -20,18 +20,32 @@
 
     <script>
       const tag = document.querySelector(`.tag`);
-      function updateTag() {
+      function userTag() {
         tag.innerHTML = `
-     window.screen : ${window.screen.width}${window.screen.height} </br>
-     window.outter : ${window.outerWidth}${window.outerHeight} </br>
-     window.inner : ${window.innerWidth}${window.innerHeight} </br>
-     documentElement.clientWidth : ${document.documentElement.clientWidth}${document.documentElement.clientHeight} </br>
-     `;
+      window.screen : ${window.screen.width}, ${window.screen.height} </br>
+      window.outer : ${window.outerWidth}, ${window.outerHeight} </br>
+      winodw.inner : ${window.innerWidth},${window.innerHeight} </br>  
+      documnetElement.clientWidth : ${document.documentElement.clientWidth},${document.documentElement.clientHeight} </br>
+   `;
       }
+
       window.addEventListener(`resize`, () => {
-        updateTag();
+        userTag();
       });
-      updateTag();
+      userTag();
+      //   const tag = document.querySelector(`.tag`);
+      //   function updateTag() {
+      //     tag.innerHTML = `
+      //  window.screen : ${window.screen.width}${window.screen.height} </br>
+      //  window.outter : ${window.outerWidth}${window.outerHeight} </br>
+      //  window.inner : ${window.innerWidth}${window.innerHeight} </br>
+      //  documentElement.clientWidth : ${document.documentElement.clientWidth}${document.documentElement.clientHeight} </br>
+      //  `;
+      //   }
+      //   window.addEventListener(`resize`, () => {
+      //     updateTag();
+      //   });
+      //   updateTag();
     </script>
   </body>
 </html>
