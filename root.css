@@ -30,3 +30,5 @@ flex-basis: 40%;
   background-color: var(--color-blue);
 }
 /* border로 선택되어서 화면이 깨지는거 예방 */
+
+/* calc : 크기를 바꿔주는 css */

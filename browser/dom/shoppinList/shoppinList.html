@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping List</title>
+    <link rel="stylesheet" href="shopping.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto:ital,wght@1,300&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="shopping.js"></script>
     <script
       defer
       src="https://kit.fontawesome.com/fa6aab1a0c.js"
@@ -12,10 +20,13 @@
     ></script>
   </head>
   <body>
-    <h1>Shopping List</h1>
-    <section class="list"></section>
-    <nav class="plus__icon"><i class="fas fa-plus-circle"></i></nav>
+    <section class="shopping__list">
+      <h1>Shopping List</h1>
+      <section class="items"></section>
+      <footer class="plus">
+        <input class="plus__text" type="text" />
+        <i class="fas fa-plus-circle plus__icon"></i>
+      </footer>
+    </section>
   </body>
 </html>
-
-<!-- <i class="fas fa-trash-alt"></i> -->

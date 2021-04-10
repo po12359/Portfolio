@@ -1,0 +1,54 @@
+:root {
+  /* font-szie */
+  --font-size-large: 18px;
+  --font-size-medium: 16px;
+  --font-size-small: 14px;
+  /* color */
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+}
+.shopping__list {
+  margin: auto;
+  font-family: "Roboto", sans-serif;
+  background: no-repeat
+    linear-gradient(0.25turn, rgb(204, 98, 181) 60%, cornflowerblue);
+  border-radius: 50px;
+  width: 60vw;
+}
+
+h1 {
+  padding: 10px 0;
+  margin: 0;
+  color: white;
+  font-size: calc(var(--font-size-large) * 1.5);
+}
+.items {
+  background-color: #f0eef6;
+  height: 70vh;
+}
+.item__divider {
+  width: 90%;
+  height: 1px;
+  background-color: lightblue;
+}
+.plus {
+  display: flex;
+  flex-direction: column;
+}
+.plus__text {
+  border: none;
+  outline: none;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+.plus__icon {
+  margin: 10px;
+  font-size: calc(var(--font-size-large) * 3);
+  cursor: pointer;
+}
