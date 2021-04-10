@@ -45,7 +45,7 @@ home.addEventListener(`click`, () => {
   // console.log(event.target.dataset.link);
   // const scrollTo = document.querySelector(link);
   // scrollTo.scrollIntoView({ behavior: `smooth` });
-  scrollIntoView(`#contact`);
+  scrollIntoView(`#contact`, { behavior: `smooth`, block: `center` });
 });
 
 //show "arrow up" button when scolling down
@@ -75,7 +75,7 @@ document.addEventListener(`scroll`, () => {
 
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView({ behavior: `smooth` });
+  scrollTo.scrollIntoView({ behavior: `smooth`, block: `center` });
 }
 
 // projects
