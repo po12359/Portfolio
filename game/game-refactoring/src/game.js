@@ -1,7 +1,9 @@
-'use strict';
-import { Field, ItemType } from './field.js';
-import * as sound from './sound.js';
-
+"use strict";
+import { Field, ItemType } from "./field.js";
+import * as sound from "./sound.js";
+// as를 사용하면 이름을 바꿔서 모듈을 가져올 수 있습니다.
+// import * as = > name에 sound가 들어간 모든 걸 가지고 온다.
+// builder pattern : easy read
 export class GameBuilder {
   gameDuration(duration) {
     this.gameDuration = duration;
@@ -26,11 +28,11 @@ export class GameBuilder {
     );
   }
 }
-
+// object.freeze => 객체를 동결시켜서 그 안의 값을 더 이상 변경 못한다.
 export const Reason = Object.freeze({
-  win: 'win',
-  lose: 'lose',
-  cancel: 'cancel',
+  win: "win",
+  lose: "lose",
+  cancel: "cancel",
 });
 
 class Game {
@@ -40,14 +42,13 @@ class Game {
     this.bugCount = bugCount;
 
     this.field = new Field(this.carrotCount, this.bugCount);
-    this.field.setItemClickListener(item => this.onItemClick(item));
-    this.timerIndicator = document.querySelector('.game__timer');
-    this.scoreText = document.querySelector('.game__score');
-    this.gameBtn = document.querySelector('.game__button');
-    this.gameBtn.addEventListener('click', () => {
+    this.field.setItemClickListener((item) => this.onItemClick(item));
+    this.timerIndicator = document.querySelector(".game__timer");
+    this.scoreText = document.querySelector(".game__score");
+    this.gameBtn = document.querySelector(".game__button");
+    this.gameBtn.addEventListener("click", () => {
       if (this.started) {
         this.stop(Reason.cancel);
-        sound.playAlert();
       } else {
         this.start();
       }
@@ -76,11 +77,11 @@ class Game {
     this.hideStartButton();
     this.stopGameTimer();
     sound.stopBackground();
-    if (reason === Reason.win) {
-      sound.playWin();
-    } else if (reason === Reason.lose) {
-      sound.playLost();
-    }
+    // if (reason === Reason.win) {
+
+    // } else if (reason === Reason.lose) {
+
+    // }
     this.onGameStop && this.onGameStop(reason);
   }
 
@@ -133,29 +134,29 @@ class Game {
   }
 
   showStartButton() {
-    const icon = this.gameBtn.querySelector('.fas');
-    icon.classList.remove('fa-stop');
-    this.gameBtn.style.visibility = 'visible';
+    const icon = this.gameBtn.querySelector(".fas");
+    icon.classList.remove("fa-stop");
+    this.gameBtn.style.visibility = "visible";
   }
 
   showStopButton() {
-    const icon = this.gameBtn.querySelector('.fas');
-    icon.classList.add('fa-stop');
-    this.gameBtn.style.visibility = 'visible';
+    const icon = this.gameBtn.querySelector(".fas");
+    icon.classList.add("fa-stop");
+    this.gameBtn.style.visibility = "visible";
   }
 
   hideStartButton() {
-    this.gameBtn.style.visibility = 'hidden';
+    this.gameBtn.style.visibility = "hidden";
   }
 
   showTimerAndScore() {
-    this.timerIndicator.style.visibility = 'visible';
-    this.scoreText.style.visibility = 'visible';
+    this.timerIndicator.style.visibility = "visible";
+    this.scoreText.style.visibility = "visible";
   }
 
   hideTimerAndScore() {
-    this.timerIndicator.style.visibility = 'hidden';
-    this.scoreText.style.visibility = 'hidden';
+    this.timerIndicator.style.visibility = "hidden";
+    this.scoreText.style.visibility = "hidden";
   }
 
   updateTimerText(time) {
