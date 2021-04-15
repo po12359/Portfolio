@@ -27,7 +27,16 @@ navbarMenu.addEventListener("click", (event) => {
   navbarMenu.classList.remove("open");
   scrollIntoView(link);
 });
-
+// navbar click background-color event
+const menuItem = document.querySelector(`.navbar__menu--item`);
+navbarMenu.addEventListener(`click`, (e) => {
+  if (e.target.className === `navbar__menu--item`) {
+    e.target.classList.add(`item-color`);
+    if (navbarMenu % e.target.className === `item-color`) {
+      navbarMenu % e.target.classList.remove(`item-color`);
+    }
+  }
+});
 // navbar toggle button for small screen
 const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
 navbarToggleBtn.addEventListener("click", () => {

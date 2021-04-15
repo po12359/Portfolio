@@ -11,9 +11,9 @@ export const ItemType = Object.freeze({
 });
 // field는 게임의 info에 대해 아무것도 모른다.
 // field는 게임을 생성하고 클릭까지만 하는 class
-export class Field {
+export class Field { // class object 
   constructor(carrotCount, bugCount) {
-    this.carrotCount = carrotCount;
+    this.carrotCount = carrotCount; // carrotCout = { this : carrotCount}
     this.bugCount = bugCount;
     this.field = document.querySelector(".game__field");
     this.fieldRect = this.field.getBoundingClientRect();

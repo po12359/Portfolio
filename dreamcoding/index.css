@@ -138,7 +138,9 @@ a {
   color: var(--color-white);
   border: none;
 }
-
+.item-color {
+  background-color: cornflowerblue;
+}
 /* home */
 #home {
   background: center/cover no-repeat url(img/home-background.png);

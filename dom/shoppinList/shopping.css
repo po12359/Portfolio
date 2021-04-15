@@ -1,81 +1,79 @@
-:root {
-  /* font-szie */
-  --font-size-large: 18px;
-  --font-size-medium: 16px;
-  --font-size-small: 14px;
-  /* color */
-}
 * {
-  box-sizing: border-box;
+  font-family: "Antonio", sans-serif;
 }
+
 body {
-  text-align: center;
-  background-color: lightgoldenrodyellow;
+  background-color: black;
+  height: 100vh;
 }
-button {
-  border: none;
-  outline: none;
-  background-color: transparent;
+
+i {
   cursor: pointer;
 }
-.shopping__list {
+
+.shoppingList {
+  border-radius: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(238, 177, 232, 0.9943100995732574) 28%,
+    rgba(180, 171, 236, 1) 59%,
+    rgb(150, 187, 231) 82%
+  );
+  width: 600px;
+  height: 700px;
   margin: auto;
-  font-family: "Roboto", sans-serif;
-  background: no-repeat
-    linear-gradient(0.25turn, rgb(204, 98, 181) 60%, cornflowerblue);
-  border-radius: 50px;
-  width: 60vw;
+  text-align: center;
 }
 
-h1 {
-  padding: 10px 0;
-  margin: 0;
+.header__shopping {
+  padding: 10px;
   color: white;
-  font-size: calc(var(--font-size-large) * 1.5);
+  font-size: 30px;
 }
-.items {
-  overflow-y: scroll;
-  background-color: #f0eef6;
-  height: 70vh;
-}
-.item__row {
+.shopping {
+  background-color: #eeeeee;
+  margin: 0;
+  padding: 10px 20px;
+  height: 70%;
   list-style: none;
 }
-.item {
+.nav__shopping {
+  display: flex;
+  flex-direction: column;
+  font-size: 50px;
+}
+.shopping__list-box {
   display: flex;
   justify-content: space-between;
-  padding: 5px 20px;
-  list-style: none;
-  padding: 10px 20px;
-  font-weight: 700;
-  font-size: var(--font-size-large);
+  font-size: 20px;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 10px;
 }
-
-.item__delete {
-  font-size: var(--font-size-large);
-}
-.item__delete:hover {
-  color: red;
-}
-.item__divider {
-  margin: auto;
-  width: 90%;
-  height: 1px;
-  background-color: lightblue;
-}
-
-.plus__text {
+.input__shopping {
+  height: 30px;
   border: none;
   outline: none;
-  height: 50px;
   font-size: 20px;
+  font-weight: 600;
   text-align: center;
-  font-weight: 700;
-  width: 100%;
+  margin-bottom: 10px;
 }
-.plus__icon {
-  width: 60px;
-  height: 60px;
-  margin: 10px;
-  font-size: calc(var(--font-size-large) * 3);
+
+.shopping__btn-trash {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+.shopping__btn-trash:hover {
+  color: tomato;
+}
+.shopping__plus:hover {
+  transform: scale(1.1);
+}
+.shopping__plus {
+  margin: auto;
+  transition: transform 300ms ease;
 }
