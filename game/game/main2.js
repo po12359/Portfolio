@@ -32,25 +32,6 @@ let started = false;
 let score = 0;
 let timer = undefined;
 
-function addItem(className, num, src) {
-  const x1 = 0;
-  const y1 = 0; // (x,y) = (0,0)
-  const x2 = fieldRect.width - CARROT_SIZE;
-  const y2 = fieldRect.height - CARROT_SIZE;
-
-  for (let i = 0; i < num; i++) {
-    const img = document.createElement(`img`);
-    img.setAttribute(`class`, className);
-    img.setAttribute(`src`, src);
-    img.style.position = `absolute`; // free positon
-    img.style.cursor = `pointer`;
-    gameField.appendChild(img); // img in field
-    const x = randomNumber(x1, x2); // x == width
-    const y = randomNumber(y1, y2); // y == height
-    img.style.top = `${y}px`;
-    img.style.left = `${x}px`;
-  }
-}
 function randomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -58,10 +39,7 @@ function randomNumber(min, max) {
 //2. icon in fieldd
 function itemInGame() {
   score = 0;
-  gameField.innerHTML = ``;
   gameScore.innerText = CARROT_COUNT;
-  addItem(`carrot`, CARROT_COUNT, `img/carrot.png`);
-  addItem(`bug`, CARROT_COUNT, `img/bug.png`);
 }
 
 //3. gamestartBtn

@@ -32,8 +32,8 @@ const menuItem = document.querySelector(`.navbar__menu--item`);
 navbarMenu.addEventListener(`click`, (e) => {
   if (e.target.className === `navbar__menu--item`) {
     e.target.classList.add(`item-color`);
-    if (navbarMenu % e.target.className === `item-color`) {
-      navbarMenu % e.target.classList.remove(`item-color`);
+    if (e.currentTarget.className !== `.item-color`) {
+      e.currentTarget.classList.remove(`.item-color`);
     }
   }
 });

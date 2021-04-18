@@ -1,40 +1,33 @@
-'use strict';
-
-const carrotSound = new Audio('./sound/carrot_pull.mp3');
-const failSound = new Audio('./sound/bug_pull.mp3');
-const winSound = new Audio('./sound/game_win.mp3');
-const bgSound = new Audio('./sound/bg.mp3');
-const alertSound = new Audio('./sound/alert.wav');
-
-export function playCarrot() {
+`use strict`;
+// sound
+const carrotSound = new Audio(`sound/carrot_pull.mp3`);
+const bugSound = new Audio(`sound/bug_pull.mp3`);
+const alertSound = new Audio(`sound/alert.wav`);
+const bgSound = new Audio(`sound/bg.mp3`);
+const winSound = new Audio(`sound/game_win.mp3`);
+function playSound(item) {
+  item.play();
+}
+export function carrot() {
   playSound(carrotSound);
 }
 
-export function playBug() {
-  playSound(failSound);
+export function bug() {
+  playSound(bugSound);
 }
 
-export function playWin() {
-  playSound(winSound);
-}
-
-export function playLost() {
-  playSound(failSound);
-}
-
-export function playBackground() {
-  playSound(bgSound);
-}
-
-export function stopBackground() {
-  bgSound.pause();
-}
-
-export function playAlert() {
+export function alert() {
   playSound(alertSound);
 }
 
-function playSound(sound) {
-  sound.currentTime = 0;
-  sound.play();
+export function background() {
+  playSound(bgSound);
+}
+
+export function win() {
+  playSound(winSound);
+}
+
+export function backgroundStop() {
+  bgSound.pause();
 }
