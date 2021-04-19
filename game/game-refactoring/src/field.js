@@ -37,6 +37,12 @@ export default class Field {
     this.addItem(`carrot`, this.carrotCount, `img/carrot.png`);
     this.addItem(`bug`, this.bugCount, `img/bug.png`);
   }
+
+  itemInIt(a, b) {
+    this.gameField.innerHTML = ``;
+    this.addItem(`carrot`, a, `img/carrot.png`);
+    this.addItem(`bug`, b, `img/bug.png`);
+  }
   onClick = (e) => {
     const target = e.target;
     if (target.matches(`.carrot`)) {

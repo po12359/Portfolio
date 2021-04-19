@@ -12,6 +12,7 @@ export class GameBuilder {
     this.duraition = duraition;
     return this;
   }
+
   withCarrotCount(count) {
     this.carrotCount = count;
     return this;
@@ -24,6 +25,9 @@ export class GameBuilder {
     return new Game(this.carrotCount, this.bugCount, this.duraition);
   }
 }
+const level =
+  //
+  [{ level1: 1 }, { level2: 2 }, { level3: 3 }, { level4: 4 }, { level5: 5 }];
 class Game {
   constructor(carrotcount, bugcount, duraition) {
     this.carrotcount = carrotcount;
@@ -43,11 +47,12 @@ class Game {
       // started = false => gameStart()
     });
   }
-
+  setNavbarBtn(showOnBtn) {
+    this.showOnBtn = showOnBtn;
+  }
   setGameStopBtn(stopOnClick) {
     this.stopOnClick = stopOnClick;
   }
-
   start() {
     this.started = true;
     this.init();
@@ -57,15 +62,30 @@ class Game {
     sound.background();
   }
 
-  init() {
+  nextStage() {
+    this.started = true;
+    this.init(level);
+    this.showStopBtn();
+    this.showTiemrAndScore();
+    this.startTimer();
+    sound.background();
+  }
+  init(level) {
+    if (level === 1) {
+      this.gameField.itemInIt(this.carrotcount, this.bugcount);
+    }
+    if (level === 2) {
+      this.gameField.itemInIt(this.carrotcount + 2, this.bugcount + 2);
+    }
+    if (level === 3) {
+      this.gameField.itemInIt(this.carrotcount + 4, this.bugcount + 4);
+    }
+    if (level === 4) {
+      this.gameField.itemInIt(this.carrotcount + 4, this.bugcount + 4);
+    }
     this.score = 0;
     this.gameScore.innerText = this.carrotcount;
-    this.gameField.itemIn();
-  }
-  levelUpInIt() {
-    this.score = 0;
-    this.gameScore.innerText = this.carrotcount++;
-    this.gameField.itemIn();
+    this.gameField.itemIn(this.carrotcount, this.bugcount);
   }
   showStopBtn() {
     this.gameBtn.style.visibility = `visible`;

@@ -82,3 +82,47 @@ header {
 .game__score {
   visibility: hidden;
 }
+.pop-up__btn {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.pop-up__nextStage {
+  font-size: 30px;
+  border-radius: 10px;
+  width: 55px;
+  height: 55px;
+  margin: 15px 0 10px;
+}
+.nav__btn {
+  position: absolute;
+  transform: translate(-430px, 70px);
+  font-size: 30px;
+  border-radius: 10px;
+  width: 55px;
+  height: 55px;
+  margin: 15px 0 10px;
+  outline: none;
+  border: 3px solid black;
+}
+.nav__info {
+  border-radius: 20px;
+
+  border: 3px solid black;
+  position: absolute;
+  left: 150px;
+  top: 50px;
+  color: black;
+  background-color: tomato;
+  width: 240px;
+  height: 220px;
+  display: none;
+  font-size: 14px;
+}
+.nav__info h1 {
+  text-align: center;
+}
+.nav__info li {
+  margin: 10px 5px;
+  text-align: start;
+}

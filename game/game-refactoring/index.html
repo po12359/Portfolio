@@ -12,6 +12,22 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <section class="navbar">
+      <button class="nav__btn" data-link="`.nav__Info`">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="nav__info">
+        <h1>Carrot Game🥕</h1>
+
+        <li>carrot selected👍</li>
+
+        <li>timeover⏰</li>
+
+        <li>bug selected => game over🙅‍♀️</li>
+
+        <li>stage 5🎈</li>
+      </nav>
+    </section>
     <section class="game">
       <header>
         <button class="game__button">
@@ -24,10 +40,15 @@
     </section>
     <section class="pop-up hide">
       <header>
-        <button class="pop-up__refresh">
-          <i class="fas fa-redo"></i>
-        </button>
-        <span class="pop-up__message">You have WON!!!</span>
+        <div class="pop-up__btn">
+          <button class="pop-up__refresh">
+            <i class="fas fa-redo"></i>
+          </button>
+          <button class="pop-up__nextStage">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        <span class="pop-up__message"></span>
       </header>
     </section>
   </body>
