@@ -1,0 +1,40 @@
+:root {
+  /* color */
+  --skyblue-color: #64b5f6;
+  --lightpink-color: #ff80ab;
+  --lightgreen-color: #81c784;
+  --drakwhite-color: #eeeeee;
+  /* font-size */
+  --large-font: 18px;
+  --medium-font: 14px;
+  --small-font: 10px;
+  /* border */
+  --border-bold: 3px solid black;
+}
+
+.coordinates {
+  background-color: var(--lightpink-color);
+}
+.coordinates-items {
+  position: relative;
+  padding: 0;
+  cursor: none;
+}
+
+#coordinates__cursor {
+  z-index: 1000;
+  position: fixed;
+  font-size: calc(var(--large-font) * 3);
+  color: var(--lightpink-color);
+}
+.coordinates__text {
+  background-color: whitesmoke;
+  color: var(--lightpink-color);
+  width: 300px;
+  font-size: calc(var(--large-font) * 2);
+  border-radius: 20px;
+  margin: auto;
+}
+.none {
+  display: none;
+}

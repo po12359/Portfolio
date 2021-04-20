@@ -1,128 +1,162 @@
+@import "toggle.css";
+
+:root {
+  /* color */
+  --button-color: #ffeaa7;
+  --border-color: rgb(65, 48, 48);
+  --count-color: #ffb142;
+
+  /* basic setting */
+  --border-setting: 4px solid var(--border-color);
+}
+
 body {
-  background-color: black;
-  text-align: center;
-}
-
-button {
-  cursor: pointer;
-  outline: none;
-  background-color: rgb(238, 206, 65);
-}
-
-header {
-  margin: 50px 0;
-}
-.game {
-  width: 1000px;
-  height: 800px;
-  background: center/cover no-repeat url(img/background.png);
   margin: auto;
+  overflow: hidden;
+}
+
+.bg_image {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* gameUI */
+
+.top_ui {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.game__button {
-  width: 50px;
-  height: 50px;
-  font-size: 25px;
-  border: 3px solid black;
-}
-.game__timer {
-  margin: 20px 0;
-  display: flex;
-  padding: 0 30px;
-  font-size: 20px;
-  background-color: white;
-  border: 3px solid black;
-  font-weight: 800;
+  justify-content: space-between;
+  gap: 1vmin;
+  height: 40vh;
+  padding: 3vmin;
+  user-select: none;
+  cursor: auto;
 }
 
-.game__score {
-  display: inline-block;
-  background-color: tomato;
-  border: 3px solid black;
-  width: 50px;
-  height: 50px;
-  font-size: 32px;
-  border-radius: 50%;
-  color: white;
-}
-.game__field {
-  height: 70%;
-  width: 100%;
-  position: relative;
+.stage {
+  border-radius: 5vmin;
+  font-size: 3vmin;
+  padding: 2px 7vmin;
+  font-weight: bolder;
+  margin-bottom: 1vmin;
+  background-color: var(--button-color);
+  border: var(--border-setting);
 }
 
-.pop-up {
-  background-color: #00000090;
-  height: 150px;
-  width: 400px;
-  margin: auto;
-  transform: translateY(-350px);
-  border-radius: 20px;
-}
-.pop-up.hide {
-  visibility: hidden;
-}
-.pop-up__refresh {
-  font-size: 30px;
-  border-radius: 10px;
-  width: 55px;
-  height: 55px;
-  margin: 15px 0 10px;
+.play_button {
+  border-radius: 5vmin;
+  font-size: 8vmin;
 }
 
-.pop-up__message {
-  color: white;
-  display: block;
-  font-size: 35px;
-}
-
-.game__timer,
-.game__score {
-  visibility: hidden;
-}
-.pop-up__btn {
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
-}
-.pop-up__nextStage {
-  font-size: 30px;
-  border-radius: 10px;
-  width: 55px;
-  height: 55px;
-  margin: 15px 0 10px;
-}
-.nav__btn {
-  position: absolute;
-  transform: translate(-430px, 70px);
-  font-size: 30px;
-  border-radius: 10px;
-  width: 55px;
-  height: 55px;
-  margin: 15px 0 10px;
+button {
+  background: transparent;
+  background-color: var(--button-color);
   outline: none;
-  border: 3px solid black;
+  border: var(--border-setting);
 }
-.nav__info {
-  border-radius: 20px;
 
-  border: 3px solid black;
-  position: absolute;
-  left: 150px;
-  top: 50px;
-  color: black;
-  background-color: tomato;
-  width: 240px;
-  height: 220px;
-  display: none;
-  font-size: 14px;
+button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
-.nav__info h1 {
+
+.fas {
+  padding: 2vmin;
+}
+
+/* timer */
+
+.time_display {
+  background: white;
+  border: var(--border-setting);
+  border-radius: 22px;
+  font-size: 6vmin;
+  width: 25vmin;
+  height: 7vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count {
+  background-color: var(--count-color);
+  color: white;
+  font-size: 7vmin;
+  height: 10vmin;
+  border-radius: 72px;
+  width: 11vmin;
   text-align: center;
+  border: var(--border-setting);
 }
-.nav__info li {
-  margin: 10px 5px;
-  text-align: start;
+
+/* pop up */
+
+.popup {
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(47, 53, 66, 0.7);
+  border-radius: 23px;
+  width: 99vw;
+  height: 48vh;
+  margin: auto;
+  z-index: 1;
+  transform: translate(0, -32vmin);
+}
+
+.replay,
+.next_stage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 45vmin;
+  /* height: 30vmin; */
+}
+
+.popup button {
+  border-radius: 2vmin;
+  margin-bottom: 1vmin;
+  height: 15vmin;
+}
+
+.fa-reply-all,
+.fa-forward {
+  padding: 4px;
+  font-size: 8vmin;
+}
+
+.popup span {
+  color: white;
+  font-size: 4vmin;
+}
+
+/* field */
+
+.play_field {
+  height: 35vh;
+  padding: 1vmin;
+  margin: 0;
+  transform: translate(0, 10vmin);
+}
+
+.play_field img {
+  position: absolute;
+  cursor: pointer;
+}
+
+.bug:hover {
+  height: 25%;
+  /* width: 25%; */
+}
+
+.carrot:hover {
+  height: 40%;
+}
+
+.non_display {
+  display: none;
 }

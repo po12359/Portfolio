@@ -1,0 +1,27 @@
+:root {
+  /* color */
+  --skyblue-color: #64b5f6;
+  --lightpink-color: #ff80ab;
+  --lightgreen-color: #81c784;
+  --drakwhite-color: #eeeeee;
+  /* font-size */
+  --large-font: 18px;
+  --medium-font: 14px;
+  --small-font: 10px;
+  /* border */
+  --border-bold: 3px solid black;
+}
+
+.scroll {
+  background-color: var(--lightgreen-color);
+}
+
+.scroll__items {
+  display: flex;
+  flex-direction: column;
+  font-size: calc(var(--large-font) * 5);
+  overflow-y: scroll;
+}
+.scroll__items i {
+  margin: 10px 0;
+}

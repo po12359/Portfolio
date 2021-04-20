@@ -3,53 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fun Game</title>
+    <title>Collecting_carrot_game</title>
     <script
-      src="https://kit.fontawesome.com/9eb162ac0d.js"
+      src="https://kit.fontawesome.com/579c4d8c64.js"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="src/main.js" defer></script>
     <link rel="stylesheet" href="style.css" />
+    <!-- main.js doesn't work without 'defer' keyword -->
+    <script type="module" src="./src/main.js" defer></script>
   </head>
   <body>
-    <section class="navbar">
-      <button class="nav__btn" data-link="`.nav__Info`">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav class="nav__info">
-        <h1>Carrot Game🥕</h1>
-
-        <li>carrot selected👍</li>
-
-        <li>timeover⏰</li>
-
-        <li>bug selected => game over🙅‍♀️</li>
-
-        <li>stage 5🎈</li>
-      </nav>
+    <div id="background">
+      <img src="./img/background.png" class="bg_image" />
+    </div>
+    <section class="top_ui">
+      <span class="stage">Stage 1</span>
+      <button class="play_button"><i class="fas fa-play"></i></button>
+      <div class="time_display">00:00</div>
+      <span class="count">0</span>
     </section>
-    <section class="game">
-      <header>
-        <button class="game__button">
-          <i class="fas fa-play"></i>
-        </button>
-        <span class="game__timer"> 00:00 </span>
-        <span class="game__score">0</span>
-      </header>
-      <section class="game__field"></section>
-    </section>
-    <section class="pop-up hide">
-      <header>
-        <div class="pop-up__btn">
-          <button class="pop-up__refresh">
-            <i class="fas fa-redo"></i>
-          </button>
-          <button class="pop-up__nextStage">
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
-        <span class="pop-up__message"></span>
-      </header>
-    </section>
+
+    <ul class="play_field"></ul>
+
+    <div class="popup non_display">
+      <div class="replay">
+        <button class="replay_btn"><i class="fas fa-reply-all"></i></button>
+        <span>you won! replay?🎉</span>
+      </div>
+      <div class="next_stage non_display">
+        <button class="replay_btn"><i class="fas fa-forward"></i></button>
+        <span>Next stage?</span>
+      </div>
+    </div>
+
+    <div class="js_toggle open_toggle">Introduction</div>
+    <div class="toggle_content swirl-out-bck non_display">
+      <header class="js_toggle header">close</header>
+      <section class="toggle_section non_display">
+        <h2>Introduction</h2>
+        <article>
+          Thanks for playing this game. Rules are really simple.
+        </article>
+        <div>■</div>
+        <article class="detail_description">
+          <span>🥇Goal: Collect all the carrots within the limited time.</span>
+          <span>💥Fail: Touch bugs / Time out.</span>
+          <span>Then good luck and hope you enjoy the game.🧡🤩</span>
+        </article>
+      </section>
+    </div>
+
+    <script type="module" src="./src/toggle.js"></script>
   </body>
 </html>
