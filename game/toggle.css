@@ -1,0 +1,45 @@
+/* toggle btn  */
+:root {
+  /* color */
+  --background-color: #7986cb;
+  --title-color: #ff8a65;
+  --button-color: #ffab91;
+  /* font size */
+  --font-r: 32px;
+  --font-m: 22px;
+  --font-s: 18px;
+  /* font weight */
+  --font-weight-b: 800;
+  --font-weight-s: 600;
+}
+.toggle_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: tomato;
+  width: 700px;
+  height: 300px;
+  position: absolute;
+  top: 400px;
+  left: 35%;
+  border-radius: 20px;
+  border: 3px solid black;
+}
+
+.non_display {
+  display: none;
+}
+.js_toggle {
+  font-size: var(--font-r);
+  font-weight: var(--font-weight-b);
+}
+.detail_description {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.detail_description span {
+  margin-bottom: 7px;
+  text-align: start;
+}
