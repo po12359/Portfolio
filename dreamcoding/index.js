@@ -5,14 +5,12 @@ const navbarHeight = navbar.getBoundingClientRect().height;
 const home = document.querySelector(`.home__container`);
 const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener(`scroll`, () => {
-  console.log(window.scrollY);
-  console.log(`navbarHeight : ${navbarHeight}`);
   if (window.scrollY > navbarHeight) {
     navbar.classList.add(`navbar--dark`);
   } else {
     navbar.classList.remove(`navbar--dark`);
   }
-  console.log(`homeHeight : ${homeHeight}`);
+
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
@@ -28,32 +26,6 @@ navbarMenu.addEventListener("click", (event) => {
   scrollIntoView(link);
 });
 // navbar click background-color event
-const menuItems = document.querySelectorAll(`.navbar__menu--item`);
-
-const callback = (entries, observer) => {
-  entries.forEach((entry) => {
-    const target = entry.target;
-    const dataLink = entry.target.dataset.link;
-    if (entry.isIntersecting) {
-      if (dataLink) {
-        target.classList.add(`item-color`);
-      } else {
-        return;
-      }
-    } else {
-      target.classList.remove(`item-color`);
-    }
-  });
-};
-const option = {
-  root: null,
-  rootMargin: `0px`,
-  threshold: 0.5,
-};
-const observer = new IntersectionObserver(callback, option);
-menuItems.forEach((menuItem) => {
-  observer.observe(menuItem);
-});
 
 // navbar toggle button for small screen
 const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
@@ -92,18 +64,12 @@ arrowUp.addEventListener(`click`, () => {
 });
 
 document.addEventListener(`scroll`, () => {
-  console.log(arrowUpHeight);
   if (window.scrollY > homeHeight / 2) {
     arrowUp.classList.add(`arrow-up-dark`);
   } else {
     arrowUp.classList.remove(`arrow-up-dark`);
   }
 });
-
-function scrollIntoView(selector) {
-  const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView({ behavior: `smooth`, block: `center` });
-}
 
 // projects
 const workBtnContainer = document.querySelector(`.work___categories`);
@@ -150,5 +116,76 @@ workBtnContainer.addEventListener("click", (e) => {
 // };
 
 // 1. 모든 섹션 요소들과 메뉴 아이템을 가지고 온다
-// 2. intersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+
+// 1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다
+const sectionIds = [
+  "#home",
+  "#about",
+  "#skills",
+  "#work",
+  "#testimonials",
+  "#contact",
+];
+const sections = sectionIds.map((id) => document.querySelector(id));
+// id를 가진 section tag를 new array로 만들어 줌
+const navItems = sectionIds.map((id) =>
+  document.querySelector(`[data-link="${id}"]`)
+);
+// data-link ${id}를 가진 요소들로 new array를 만들어줬다.
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: `smooth`, block: `center` });
+  selectNavItem(navItems[sectionIds.indexOf(selector)]);
+}
+let selectedNavIndex = 0;
+//
+let selectedNavItem = navItems[0];
+//선택된 navitem 요소
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove("active");
+  selectedNavItem = selected;
+  selectedNavItem.classList.add("active");
+}
+
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.3,
+};
+
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      // entry는 빠져나간 section => !entry는 빠져나가지 않은 section
+      // index는 빠져나지 않은 target의 id
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      // 스크롤링이 아래로 되어서 페이지가 올라옴
+      if (entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1;
+      } else {
+        selectedNavIndex = index - 1;
+      }
+    }
+  });
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach((section) => observer.observe(section));
+
 //3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다.
+
+window.addEventListener(`wheel`, () => {
+  if (window.scrollY === 0) {
+    selectedNavIndex = 0;
+  } else if (
+    Math.ceil(window.scrollY + window.innerHeight) >= document.body.clientHeight
+  ) {
+    selectedNavIndex = navItems.length - 1;
+  }
+  selectNavItem(navItems[selectedNavIndex]);
+});
+console.log(window.scrollY + window.innerHeight);
+console.log(document.body.clientHeight);
