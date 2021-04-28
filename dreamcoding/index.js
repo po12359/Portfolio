@@ -28,15 +28,33 @@ navbarMenu.addEventListener("click", (event) => {
   scrollIntoView(link);
 });
 // navbar click background-color event
-const menuItem = document.querySelector(`.navbar__menu--item`);
-navbarMenu.addEventListener(`click`, (e) => {
-  if (e.target.className === `navbar__menu--item`) {
-    e.target.classList.add(`item-color`);
-    if (e.currentTarget.className !== `.item-color`) {
-      e.currentTarget.classList.remove(`.item-color`);
+const menuItems = document.querySelectorAll(`.navbar__menu--item`);
+
+const callback = (entries, observer) => {
+  entries.forEach((entry) => {
+    const target = entry.target;
+    const dataLink = entry.target.dataset.link;
+    if (entry.isIntersecting) {
+      if (dataLink) {
+        target.classList.add(`item-color`);
+      } else {
+        return;
+      }
+    } else {
+      target.classList.remove(`item-color`);
     }
-  }
+  });
+};
+const option = {
+  root: null,
+  rootMargin: `0px`,
+  threshold: 0.5,
+};
+const observer = new IntersectionObserver(callback, option);
+menuItems.forEach((menuItem) => {
+  observer.observe(menuItem);
 });
+
 // navbar toggle button for small screen
 const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
 navbarToggleBtn.addEventListener("click", () => {
