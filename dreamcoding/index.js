@@ -128,11 +128,13 @@ const sectionIds = [
   "#testimonials",
   "#contact",
 ];
+// const sectionIds는 section의 id 값을 배열로 가지고 왔다.
 const sections = sectionIds.map((id) => document.querySelector(id));
 // id를 가진 section tag를 new array로 만들어 줌
 const navItems = sectionIds.map((id) =>
   document.querySelector(`[data-link="${id}"]`)
 );
+console.log(navItems);
 // data-link ${id}를 가진 요소들로 new array를 만들어줬다.
 
 function scrollIntoView(selector) {
@@ -141,12 +143,13 @@ function scrollIntoView(selector) {
   selectNavItem(navItems[sectionIds.indexOf(selector)]);
 }
 let selectedNavIndex = 0;
+// 선택한 navbar의 순서를 담고 있는 variable = > js에서 처음은 1이 아닌 0 이다!
 //
 let selectedNavItem = navItems[0];
-//선택된 navitem 요소
+//선택된 navitem 요소를 가지고 온다  navitems[0] = 첫번째 요소를 가지고 온다
 function selectNavItem(selected) {
-  selectedNavItem.classList.remove("active");
-  selectedNavItem = selected;
+  selectedNavItem.classList.remove("active"); // 지우는 이유 처음엔 narbaritem  전체가 선택되어 진다.
+  selectedNavItem = selected; // 그리고 인자로 받은 정확한 위치를 가진 요소를 가지고 온다.
   selectedNavItem.classList.add("active");
 }
 
@@ -161,7 +164,8 @@ const observerCallback = (entries, observer) => {
     if (!entry.isIntersecting && entry.intersectionRatio > 0) {
       // entry는 빠져나간 section => !entry는 빠져나가지 않은 section
       // index는 빠져나지 않은 target의 id
-      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      const index = sectionIds.indexOf(`#${entry.target.id}`); // 빠져나간 element target의 id를 가지고 온다
+      console.log(index);
       // 스크롤링이 아래로 되어서 페이지가 올라옴
       if (entry.boundingClientRect.y < 0) {
         selectedNavIndex = index + 1;
@@ -185,6 +189,7 @@ window.addEventListener(`wheel`, () => {
   ) {
     selectedNavIndex = navItems.length - 1;
   }
+  // obj[key] 는 key를 변수로 접근하고, obj.key는 key를 객체의 속성으로 접근한다.
   selectNavItem(navItems[selectedNavIndex]);
 });
 console.log(window.scrollY + window.innerHeight);
