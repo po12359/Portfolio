@@ -33,9 +33,9 @@ navbarToggleBtn.addEventListener("click", () => {
   navbarMenu.classList.toggle("open");
 });
 //make home slowly fade to transparent as the window scrolls down
-const homeContact = document.querySelector(`.home__contacat`);
+const homeContact = document.querySelector(`.home__contact`);
 
-home.addEventListener(`click`, () => {
+homeContact.addEventListener(`click`, () => {
   // const target = event.target;
   // const link = target.dataset.link;
   // if (link == null) {
@@ -49,7 +49,6 @@ home.addEventListener(`click`, () => {
 
 //show "arrow up" button when scolling down
 const arrowUp = document.querySelector(`.arrow-up, .fas fa-arrow-up`);
-const arrowUpHeight = arrowUp.getBoundingClientRect().height;
 
 arrowUp.addEventListener(`click`, () => {
   // const target = event.target;
